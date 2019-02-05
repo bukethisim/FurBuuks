@@ -26,6 +26,8 @@ namespace FurBuuks.Models
         public List<Book> Books { get; set; }
         public List<Comment> Comments { get; set; }
         public SocialMedia SMLinks { get; set; }
+        [MaxLength(500)]
+        public string Bio { get; set; }
     }
     [ComplexType]
     public class SocialMedia

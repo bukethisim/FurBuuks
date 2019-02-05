@@ -177,6 +177,10 @@ img::-moz-selection {
         }
 }
 
+.main-content{
+    margin-top:80px;
+}
+
 header.masthead {
     margin-bottom: 50px;
     background: no-repeat center center;
