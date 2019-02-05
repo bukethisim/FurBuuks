@@ -13,10 +13,5 @@ namespace FurBuuks.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
-        {
-            return View();
-        }
     }
 }
