@@ -1,4 +1,6 @@
-﻿
+﻿@using FurBuuks.Models
+@model List<User>
+
 @{
     ViewBag.Title = "UserProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,15 +9,68 @@
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-       <div class="col-3">
-           <img src="~/Content/img/about-bg.jpg" height="200" width="200"/>
-       </div>
-        <div class="col-9">
-            <h3>AD SOYAD</h3>
-            <p>Lorem ıpsum dolar sit amet.</p>
-        </div>
+        @foreach (var item in Model)
+        {<div class="col-3">
+                <img src="@item.ImageURL" style="max-width:100%;" />
+            </div>
+            <div class="col-9">
+                <h3>@item.NameSurname</h3>
+                <h5>@item.UserName</h5>
+                <p>@item.Bio</p>
+            </div>
+        }
     </div>
 </div>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-google-plus fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-tumblr fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
 

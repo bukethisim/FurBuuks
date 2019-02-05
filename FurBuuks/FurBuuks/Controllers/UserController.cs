@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FurBuuks.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,9 @@ namespace FurBuuks.Controllers
 
         public ActionResult UserProfile()
         {
-            return View();
+            FurBuuksContext db = new FurBuuksContext();
+            List<User> data = db.Users.ToList();
+            return View(data);
         }
     }
 }
