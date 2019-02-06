@@ -7,70 +7,89 @@
 }
 
 <!-- Main Content -->
-<div class="container">
-    <div class="row">
-        @foreach (var item in Model)
-        {<div class="col-3">
-                <img src="@item.ImageURL" style="max-width:100%;" />
-            </div>
-            <div class="col-9">
-                <h3>@item.NameSurname</h3>
-                <h5>@item.UserName</h5>
-                <p>@item.Bio</p>
-            </div>
-        }
-    </div>
-</div>
-<footer>
+<section class="wrapper">
     <div class="container">
+            <a class="bottom" href="/User/Edit?id=@Model.Where(x=> x.Id ==6 )">Profili Düzenle</a>
+      
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <ul class="list-inline text-center">
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-google-plus fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-tumblr fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li> 
-                </ul>
-            </div>
+            @foreach (var item in Model)
+            {<div class="col-3">
+                    <img src="@item.ImageURL" style="max-width:100%;" />
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 mx-auto">
+                            <ul class="list-inline text-center">
+                                @if (item.SMLinks.TwitterURL != null)
+                                {
+                                    <li class="list-inline-item">
+                                        <a href="@item.SMLinks.TwitterURL">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+                                @if (item.SMLinks.FacebookURL != null)
+                                {
+                                    <li class="list-inline-item">
+                                        <a href="@item.SMLinks.FacebookURL">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+                                @if (item.SMLinks.GooglePlusURL != null)
+                                {
+                                    <li class="list-inline-item">
+                                        <a href="@item.SMLinks.GooglePlusURL">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                <i class="fab fa-google-plus fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+                                @if (item.SMLinks.InstagramURL != null)
+                                {
+                                    <li class="list-inline-item">
+                                        <a href="@item.SMLinks.InstagramURL">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+                                @if (item.SMLinks.TumblrURL != null)
+                                {
+                                    <li class="list-inline-item">
+                                        <a href="@item.SMLinks.TumblrURL">
+                                            <span class="fa-stack fa-lg">
+                                                <i class="fas fa-circle fa-stack-2x"></i>
+                                                <i class="fab fa-tumblr fa-stack-1x fa-inverse"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <h3>@item.NameSurname</h3>
+                    <h6>@item.UserName </h6>
+                    <span> <a href="mailto:@item.SMLinks.Email">E-mail:@item.SMLinks.Email</a> </span>
+                    <p>@item.Bio</p>
+                </div>
+
+            }
         </div>
     </div>
-</footer>
+</section>
+
 
 
 
