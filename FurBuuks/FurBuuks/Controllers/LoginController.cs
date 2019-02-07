@@ -19,7 +19,6 @@ namespace FurBuuks.Controllers
         [HttpPost]
         public JsonResult ValidateUser(string email, string password)
         {
-
             var data = from c in db.Users where c.SMLinks.Email == email && c.Password == password select c;
             if (data.Count() > 0)
                 return Json(new { Success = true }, JsonRequestBehavior.AllowGet);

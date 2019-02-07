@@ -6,89 +6,188 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- Main Content -->
-<section class="wrapper">
-    <div class="container">
-            <a class="bottom" href="/User/Edit?id=@Model.Where(x=> x.Id ==6 )">Profili Düzenle</a>
-      
-        <div class="row">
-            @foreach (var item in Model)
-            {<div class="col-3">
-                    <img src="@item.ImageURL" style="max-width:100%;" />
-                    <div class="row">
-                        <div class="col-lg-8 col-md-10 mx-auto">
-                            <ul class="list-inline text-center">
-                                @if (item.SMLinks.TwitterURL != null)
-                                {
-                                    <li class="list-inline-item">
-                                        <a href="@item.SMLinks.TwitterURL">
-                                            <span class="fa-stack fa-lg">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                }
-                                @if (item.SMLinks.FacebookURL != null)
-                                {
-                                    <li class="list-inline-item">
-                                        <a href="@item.SMLinks.FacebookURL">
-                                            <span class="fa-stack fa-lg">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                }
-                                @if (item.SMLinks.GooglePlusURL != null)
-                                {
-                                    <li class="list-inline-item">
-                                        <a href="@item.SMLinks.GooglePlusURL">
-                                            <span class="fa-stack fa-lg">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fab fa-google-plus fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                }
-                                @if (item.SMLinks.InstagramURL != null)
-                                {
-                                    <li class="list-inline-item">
-                                        <a href="@item.SMLinks.InstagramURL">
-                                            <span class="fa-stack fa-lg">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                }
-                                @if (item.SMLinks.TumblrURL != null)
-                                {
-                                    <li class="list-inline-item">
-                                        <a href="@item.SMLinks.TumblrURL">
-                                            <span class="fa-stack fa-lg">
-                                                <i class="fas fa-circle fa-stack-2x"></i>
-                                                <i class="fab fa-tumblr fa-stack-1x fa-inverse"></i>
-                                            </span>
-                                        </a>
-                                    </li>
-                                }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+    <style>
+        .mainbody {
+            background: #f0f0f0;
+        }
+        /* Special class on .container surrounding .navbar, used for positioning it into place. */
+        .navbar-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            margin-left: -15px;
+            margin-right: -15px;
+        }
 
-                            </ul>
+            /* Flip around the padding for proper display in narrow viewports */
+            .navbar-wrapper .container {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .navbar-wrapper .navbar {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+        .navbar-content {
+            width: 320px;
+            padding: 15px;
+            padding-bottom: 0px;
+        }
+
+            .navbar-content:before, .navbar-content:after {
+                display: table;
+                content: "";
+                line-height: 0;
+            }
+
+        .navbar-nav.navbar-right:last-child {
+            margin-right: 15px !important;
+        }
+
+        .navbar-footer {
+            background-color: #DDD;
+        }
+
+        .navbar-footer-content {
+            padding: 15px 15px 15px 15px;
+        }
+
+        .dropdown-menu {
+            padding: 0px;
+            overflow: hidden;
+        }
+
+        .brand_network {
+            color: #9D9D9D;
+            float: left;
+            position: absolute;
+            left: 70px;
+            top: 30px;
+            font-size: smaller;
+        }
+
+        .post-content {
+            margin-left: 58px;
+        }
+
+        .badge-important {
+            margin-top: 3px;
+            margin-left: 25px;
+            position: absolute;
+        }
+
+        body {
+            background-color: #e8e8e8;
+        }
+    </style>
+</head>
+<body>
+    <section class="wrapper">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="mainbody container-fluid">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="media">
+                                <div class="media-body">
+                                    <img src="~/Content/img/iconfinder_user_female_add_11324.png"  height="300" width="300"/>
+                                    <hr>
+                                    <h3><strong>Bio</strong></h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
+                                    <hr>
+                                    <h3><strong>Location</strong></h3>
+                                    <p>Earth</p>
+                                    <hr>
+                                    <h3><strong>Gender</strong></h3>
+                                    <p>Unknown</p>
+                                    <hr>
+                                    <h3><strong>Birthday</strong></h3>
+                                    <p>January 01 1901</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-9">
-                    <h3>@item.NameSurname</h3>
-                    <h6>@item.UserName </h6>
-                    <span> <a href="mailto:@item.SMLinks.Email">E-mail:@item.SMLinks.Email</a> </span>
-                    <p>@item.Bio</p>
-                </div>
 
-            }
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <!-- Simple post content example. -->
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="pull-left">
+                                <a href="#">
+                                    <img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50" height="50" style="margin-right:8px; margin-top:-5px;">
+                                </a>
+                            </div>
+                            <h4><a href="#" style="text-decoration:none;"><strong>John Doe</strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small></h4>
+                   
+                                <div class="navbar-right">
+                                    <div class="dropdown">
+                                        <button class="btn btn-link btn-xs dropdown-toggle" type="button" id="dd1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <i class="fa fa-cog" aria-hidden="true"></i>
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dd1" style="float: right;">
+                                            <li><a href="#"><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> Report</a></li>
+                                            <li><a href="#"><i class="fa fa-fw fa-ban" aria-hidden="true"></i> Ignore</a></li>
+                                            <li><a href="#"><i class="fa fa-fw fa-bell" aria-hidden="true"></i> Enable notifications for this post</a></li>
+                                            <li><a href="#"><i class="fa fa-fw fa-eye-slash" aria-hidden="true"></i> Hide</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#"><i class="fa fa-fw fa-trash" aria-hidden="true"></i> Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </span>
+                            <hr>
+                            <div class="post-content">
+                                <p>Simple post content example.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
+                            </div>
+                            <hr>
+                            <div>
+                                <div class="pull-right btn-group-xs">
+                                    <a class="btn btn-default btn-xs"><i class="fa fa-heart" aria-hidden="true"></i> Like</a>
+                                    <a class="btn btn-default btn-xs"><i class="fa fa-retweet" aria-hidden="true"></i> Reshare</a>
+                                    <a class="btn btn-default btn-xs"><i class="fa fa-comment" aria-hidden="true"></i> Comment</a>
+                                </div>
+                                <div class="pull-left">
+                                    <p class="text-muted" style="margin-left:5px;"><i class="fa fa-globe" aria-hidden="true"></i> Public</p>
+                                </div>
+                                <br>
+                            </div>
+                            <hr>
+                            <div class="media">
+                                <div class="pull-left">
+                                    <a href="#">
+                                        <img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="35" height="35" style="margin-left:3px; margin-right:-5px;">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <textarea class="form-control" rows="1" placeholder="Comment"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+</body>
+</html>
 
 
 

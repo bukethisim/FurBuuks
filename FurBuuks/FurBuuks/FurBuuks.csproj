@@ -172,6 +172,7 @@
     <Content Include="Content\img\about-bg.jpg" />
     <Content Include="Content\img\contact-bg.jpg" />
     <Content Include="Content\img\home-bg.jpg" />
+    <Content Include="Content\img\iconfinder_user_female_add_11324.png" />
     <Content Include="Content\img\post-bg.jpg" />
     <Content Include="Content\img\post-sample-image.jpg" />
     <Content Include="Content\js\clean-blog.js" />
