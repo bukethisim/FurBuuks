@@ -11,10 +11,13 @@ namespace FurBuuks.Controllers
 {
     public class UserController : Controller
     {
+        FurBuuksContext db = new FurBuuksContext();
         // GET: User
         public ActionResult Index()
         {
-            return View();
+            var user = db.Users.FirstOrDefault();
+            ViewBag.UserPhoto = user.ImageURL;
+            return View(user);
         }
 
         public ActionResult UserProfile()
