@@ -23,11 +23,11 @@ namespace FurBuuks.Models
         public string Password { get; set; }
         [MaxLength(1000)]
         public string ImageURL { get; set; }
-        public List<Book> Books { get; set; }
-        public List<Comment> Comments { get; set; }
-        public SocialMedia SMLinks { get; set; }
         [MaxLength(500)]
         public string Bio { get; set; }
+        public virtual List<Book> Books { get; set; }
+        public virtual List<Comment> Comments { get; set; }
+        public virtual SocialMedia SMLinks { get; set; }
     }
     [ComplexType]
     public class SocialMedia
