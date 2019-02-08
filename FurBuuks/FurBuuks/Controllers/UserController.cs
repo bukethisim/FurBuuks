@@ -1,10 +1,8 @@
 ﻿using FurBuuks.Models;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace FurBuuks.Controllers
@@ -22,6 +20,7 @@ namespace FurBuuks.Controllers
             FurBuuksContext db = new FurBuuksContext();
             List<User> data = db.Users.ToList();
             return View(data);
+
         }
 
         public ActionResult Edit(int? id)

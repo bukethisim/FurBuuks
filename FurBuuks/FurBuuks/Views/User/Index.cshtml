@@ -1,4 +1,5 @@
-﻿
+﻿@using FurBuuks.Models
+@model List<User>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,6 +18,7 @@
             <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat quam enim, sit amet suscipit orci ullamcorper sit amet. Donec molestie posuere eros, in convallis ipsum elementum dapibus. Cras fermentum tortor sed nisi ullamcorper ultricies in amet.</p> <!--Kullanıcı yorumu buraya gelecek-->
             <span class="comment-time">1 saat önce</span>
         </div>
+        <p> @(((User)Session["User"]).Bio);</p>
         <div class="main-comment">
             <p class="comment-user"><b>Buraya kullanıcı adı gelecek</b></p>
             <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat quam enim, sit amet suscipit orci ullamcorper sit amet. Donec molestie posuere eros, in convallis ipsum elementum dapibus. Cras fermentum tortor sed nisi ullamcorper ultricies in amet.</p> <!--Kullanıcı yorumu buraya gelecek-->
