@@ -23,7 +23,6 @@ namespace FurBuuks.Controllers
             FurBuuksContext db = new FurBuuksContext();
             List<User> data = db.Users.ToList();
             return View(data);
-
         }
 
         public ActionResult Edit(int? id)
