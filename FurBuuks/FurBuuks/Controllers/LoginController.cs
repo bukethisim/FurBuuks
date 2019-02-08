@@ -20,8 +20,12 @@ namespace FurBuuks.Controllers
         public JsonResult ValidateUser(string email, string password)
         {
             var data = from c in db.Users where c.SMLinks.Email == email && c.Password == password select c;
+            var selected = data.FirstOrDefault();
             if (data.Count() > 0)
+            {
+                Session["User"] = selected;
                 return Json(new { Success = true }, JsonRequestBehavior.AllowGet);
+            }
             else
                 return Json(new { Success = false }, JsonRequestBehavior.AllowGet);
         }
