@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using FurBuuks.Models
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -46,7 +47,7 @@
                         <a class="nav-link" href="about.html">Kitaplığım</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="post.html">Profilim</a>
+                        <a class="nav-link" href="/User/UserProfile?id=@((User)Session["User"]).Id)">Profilim</a>
                     </li>
                 </ul>
             </div>
