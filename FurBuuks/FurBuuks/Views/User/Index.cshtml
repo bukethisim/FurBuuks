@@ -24,6 +24,11 @@
         background-color: #eeeeee;
     }
 
+    a {
+        text-decoration: none;
+        color: #262626;
+    }
+
     .h7 {
         font-size: 0.8rem;
     }
@@ -286,6 +291,10 @@
                 vertical-align: middle;
             }
 
+                .card.hovercard .info .title a {
+                    color: #262626;
+                }
+
             .card.hovercard .info .desc {
                 overflow: hidden;
                 font-size: 12px;
@@ -322,25 +331,12 @@
                         <div class="title">
                             <a target="_blank" href="https://scripteden.com/">Script Eden</a>
                         </div>
-                        <div class="desc">Passionate designer</div>
-                        <div class="desc">Curious developer</div>
-                        <div class="desc">Tech geek</div>
                     </div>
                     <div class="bottom">
-                        <a class="btn btn-primary btn-twitter btn-sm" href="@Model.SMLinks.TwitterURL">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a class="btn btn-danger btn-sm" rel="publisher"
-                           href="https://plus.google.com/+ahmshahnuralam">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-                        <a class="btn btn-primary btn-sm" rel="publisher"
-                           href="https://plus.google.com/shahnuralam">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
-                            <i class="fa fa-behance"></i>
-                        </a>
+                        <div class="bottom-row">
+                            <div>Kitap</div>
+                            <a href="#">@Model.Books.Count</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -369,28 +365,27 @@
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
                                             <div class="h6 dropdown-header">Configuration</div>
-                                            <a class="dropdown-item" href="#">Save</a>
-                                            <a class="dropdown-item" href="#">Hide</a>
-                                            <a class="dropdown-item" href="#">Report</a>
+                                            <a class="dropdown-item" href="#">Kaydet</a>
+                                            <a class="dropdown-item" href="#">Gizle</a>
+                                            <a class="dropdown-item" href="#">Rapor Et</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 min ago</div>
                             <a class="card-link" href="#">
                                 <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adip.</h5>
                             </a>
                             <p class="card-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo recusandae nulla rem eos ipsa praesentium esse magnam nemo dolor
-                                sequi fuga quia quaerat cum, obcaecati hic, molestias minima iste voluptates.
+                                @item.Content
                             </p>
+                            <div class="text-muted h7 mb-2 float-right"> <i class="fa fa-clock-o">10 minutes ago</i></div>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
-                            <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
-                            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+                            <a href="#" class="card-link"><i class="fa fa-gittip"></i> Beğen</a>
+                            <a href="#" class="card-link"><i class="fa fa-comment"></i> Yorum Yap</a>
+                            <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Paylaş</a>
                         </div>
                     </div>
                     <!-- Post /////-->
