@@ -13,7 +13,7 @@ namespace FurBuuks.Controllers
         // GET: User
         public ActionResult Index()
         {
-            var user = db.Users.FirstOrDefault();
+            var user = db.Users.FirstOrDefault(); /*((User)Session["User"]);*/
             ViewBag.UserPhoto = user.ImageURL;
             return View(user);
         }
