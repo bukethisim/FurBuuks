@@ -1,4 +1,5 @@
-﻿
+﻿@using FurBuuks.Models
+@model User
 @{
     ViewBag.Title = "UserEdit";
 }
@@ -36,71 +37,87 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="home">
                         <hr>
-                        <form class="form" action="##" method="post" id="registrationForm">
+                        <form class="form" method="post" id="registrationForm">
 
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="first_name"><h4>First name</h4></label>
-                                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                                    <label for="name_surname"><h4> Ad Soyad</h4></label>
+                                    <input type="text" class="form-control" name="NameSurname" value="@Model.NameSurname" id="name_surname" placeholder="Ad - Soyad" title="İsminizi ve soyisminizi girin.">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="last_name"><h4>Last name</h4></label>
-                                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                                    <label for="username"><h4>Kullanıcı Adı</h4></label>
+                                    <input type="text" class="form-control" name="UserName" value="@Model.UserName" id="username" placeholder="Kullanıcı Adı" title="Kullanıcı adınızı girin.">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="phone"><h4>Phone</h4></label>
-                                    <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                                    <label for="email"><h4>E-mail</h4></label>
+                                    <input type="email" class="form-control" name="Email" value="@Model.SMLinks.Email" id="email" placeholder="E-mail" title="E-mail adresinizi girin.">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="mobile"><h4>Mobile</h4></label>
-                                    <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                                    <label for="password"><h4>Şifre</h4></label>
+                                    <input type="password" class="form-control" name="Password" value="@Model.Password" id="password" placeholder="Şifre" title="Yeni şifre girin.">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="email"><h4>Email</h4></label>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                                    <label for="facebook"><h4>Facebook Link</h4></label>
+                                    <input type="text" class="form-control" name="FacebookURL" value="@Model.SMLinks.FacebookURL" id="facebook_link" placeholder="Facebook Linkiniz" title="Varsa facebook linki girin.">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="email"><h4>Location</h4></label>
-                                    <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                                    <label for="twitter"><h4>Twitter Link</h4></label>
+                                    <input type="text" class="form-control" name="TwitterURL" value="@Model.SMLinks.TwitterURL" id="twitter_link" placeholder="Twitter Linkiniz" title="Varsa twitter linki girin.">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="password"><h4>Password</h4></label>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                                    <label for="instagram"><h4>Instagram Link</h4></label>
+                                    <input type="text" class="form-control" name="InstagramURL" value="@Model.SMLinks.InstagramURL" id="instagram_link" placeholder="İntagram Linkiniz" title="Varsa instagram linki girin.">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="col-xs-6">
-                                    <label for="password2"><h4>Verify</h4></label>
-                                    <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                                    <label for="googleplus"><h4>Google+ Link</h4></label>
+                                    <input type="text" class="form-control" name="GooglePlusURL" value="@Model.SMLinks.GooglePlusURL" id="googleplus_link" placeholder="Google+ Linkiniz" title="Varsa google+ linki girin.">
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="tumbler"><h4>Tumbler Link</h4></label>
+                                    <input type="text" class="form-control" name="TumblerURL" value="@Model.SMLinks.TumblrURL" id="tumbler_link" placeholder="Tumbler Linkiniz" title="Varsa tumbler linki girin.">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-6">
+                                    <label for="information"><h4> Kitaplık Bilgilerim</h4></label>
+                                    <input type="text" class="form-control" name="Bio" value="@Model.Bio" id="information" placeholder="Kitaplığım " title="Lütfen kütüphaneniz hakkında bilgi verin.">
+                                </div>
+                            </div>
+
 
                             <div class="form-group">
                                 <div class="col-xs-12">
                                     <br>
-                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Kaydet</button>
+                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Temizle</button>
                                 </div>
                             </div>
+
                         </form>
 
                         <hr>
