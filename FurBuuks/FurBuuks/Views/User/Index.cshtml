@@ -1,4 +1,5 @@
-﻿
+﻿@using FurBuuks.Models
+@model User
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -46,6 +47,10 @@
     .dropdown-toggle::after {
         content: none;
         display: none;
+    }
+
+    .dropdown-toggle {
+        color: #7F757D;
     }
 
     .usercard .card {
@@ -133,20 +138,24 @@
         background-color: #f8f8f8;
     }
 
-        .card .card-comments .comments-collapse-toggle {
-            padding: 0;
-            margin: 0 20px 12px 20px;
-        }
+    .card .card-link {
+        color: #7F757D;
+    }
 
-            .card .card-comments .comments-collapse-toggle a,
-            .card .card-comments .comments-collapse-toggle span {
-                padding-right: 5px;
-                overflow: hidden;
-                font-size: 12px;
-                color: #999;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-            }
+    .card .card-comments .comments-collapse-toggle {
+        padding: 0;
+        margin: 0 20px 12px 20px;
+    }
+
+        .card .card-comments .comments-collapse-toggle a,
+        .card .card-comments .comments-collapse-toggle span {
+            padding-right: 5px;
+            overflow: hidden;
+            font-size: 12px;
+            color: #999;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
 
     .card-comments .media-heading {
         font-size: 13px;
@@ -318,7 +327,7 @@
                         <div class="desc">Tech geek</div>
                     </div>
                     <div class="bottom">
-                        <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+                        <a class="btn btn-primary btn-twitter btn-sm" href="@Model.SMLinks.TwitterURL">
                             <i class="fa fa-twitter"></i>
                         </a>
                         <a class="btn btn-danger btn-sm" rel="publisher"
@@ -420,13 +429,6 @@
             </div>
             <!--End Offer Card Column-->
         </div>
-        <div class="main-comment">
-            <p class="comment-user"><b>Buraya kullanıcı adı gelecek</b></p>
-            <p class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis placerat quam enim, sit amet suscipit orci ullamcorper sit amet. Donec molestie posuere eros, in convallis ipsum elementum dapibus. Cras fermentum tortor sed nisi ullamcorper ultricies in amet.</p> <!--Kullanıcı yorumu buraya gelecek-->
-            <span class="comment-time">6 Şubat 2019</span>
-        </div>
     </div>
-    <section class="left-menu" style="width:19%; height:100px; background:gray; display:inline-block;"></section>
-
 </section>
 
