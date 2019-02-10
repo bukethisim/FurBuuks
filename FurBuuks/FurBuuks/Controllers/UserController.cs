@@ -20,10 +20,13 @@ namespace FurBuuks.Controllers
 
         public ActionResult UserProfile()
         {
-            FurBuuksContext db = new FurBuuksContext();
-            List<User> data = db.Users.ToList();
-            return View(data);
+            var user = ((User)Session["User"]);
+            return View(user);
         }  
 
+        public ActionResult UserEdit()
+        {
+            return View();
+        }
     }
 }
