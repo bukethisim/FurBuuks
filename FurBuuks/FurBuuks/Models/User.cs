@@ -27,16 +27,12 @@ namespace FurBuuks.Models
         public string Bio { get; set; }
         public virtual List<Book> Books { get; set; }
         public virtual List<Comment> Comments { get; set; }
-        public virtual SocialMedia SMLinks { get; set; }
-    }
-    [ComplexType]
-    public class SocialMedia
-    {
         public string FacebookURL { get; set; }
         public string InstagramURL { get; set; }
         public string GooglePlusURL { get; set; }
         public string TwitterURL { get; set; }
         public string TumblrURL { get; set; }
+        [Required]
         public string Email { get; set; }
     }
 }

@@ -40,15 +40,16 @@ namespace FurBuuks.Controllers
                 old.Password = edited.Password;
                 old.UserName = edited.UserName;
                 old.Bio = edited.Bio;
-                //old.SMLinks.Email = edited.SMLinks.Email;
-                //old.SMLinks.FacebookURL = edited.SMLinks.FacebookURL;
-                //old.SMLinks.InstagramURL = edited.SMLinks.InstagramURL;
-                //old.SMLinks.TumblrURL = edited.SMLinks.TumblrURL;
-                //old.SMLinks.TwitterURL = edited.SMLinks.TwitterURL;
-                //old.SMLinks.GooglePlusURL = edited.SMLinks.GooglePlusURL;
+             
+                old.Email = edited.Email;
+                old.FacebookURL = edited.FacebookURL;
+                old.InstagramURL = edited.InstagramURL;
+                old.TumblrURL = edited.TumblrURL;
+                old.TwitterURL = edited.TwitterURL;
+                old.GooglePlusURL = edited.GooglePlusURL;
                 db.Entry(old).State = EntityState.Modified;
                 db.SaveChanges();
-
+                Session["User"] = old;
                 return RedirectToAction("UserProfile");
             }
 
