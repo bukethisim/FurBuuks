@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Clean Blog - Start Bootstrap Theme</title>
-   
+
 
     <!-- Bootstrap core CSS -->
     <link href="/Content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,8 +24,10 @@
     <link href="/Content/css/clean-blog.min.css" rel="stylesheet">
 
     <!--Our Styles-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="~/Content/FurBuuks.css" rel="stylesheet" />
-
 </head>
 
 <body>
@@ -41,13 +43,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">AnaSayfa</a>
+                        <a class="nav-link" href="/User/Index">AnaSayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">Kitaplığım</a>
+                        <a class="nav-link" href="/User/BookShelf">Kitaplığım</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/User/UserProfile?id=@((User)Session["User"]).Id">Profilim</a>
+                        <a class="nav-link" href="/User/UserProfile">Profilim</a>
                     </li>
                 </ul>
             </div>
@@ -72,8 +74,8 @@
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="/Content/vendor/jquery/jquery.min.js"></script>
-    <script src="/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    @*<script src="/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>*@
 
     <!-- Custom scripts for this template -->
     <script src="/Content/js/clean-blog.min.js"></script>
