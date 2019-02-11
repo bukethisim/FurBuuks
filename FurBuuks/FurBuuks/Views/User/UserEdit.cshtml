@@ -14,118 +14,113 @@
 <body>
     <hr>
     <div class="container bootstrap snippet">
+        <section class="wrapper">
+            <div class="row">
 
-        <div class="row">
-            <div class="col-sm-10"><h1>User name</h1></div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-sm-3">
-                <!--left col-->
-                <div class="text-center">
-                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                    <input type="file" class="text-center center-block file-upload">
-                </div><br>
-            </div><!--/col-3-->
-
-            <div class="col-sm-9">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="/User/UserEdit">Düzenle</a></li>
-                </ul>
-
-                <div class="tab-content">
-                    <div class="tab-pane active" id="home">
-                        <hr>
-                        <form class="form" method="post" id="registrationForm">
-
+                <form class="form" method="post" id="registrationForm" enctype="multipart/form-data">
+                    <div class="col-sm-3">
+                        <!--left col-->
+                        <div class="text-center">
                             <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="name_surname"><h4> Ad Soyad</h4></label>
-                                    <input type="text" class="form-control" name="NameSurname" value="@Model.NameSurname" id="name_surname" placeholder="Ad - Soyad" title="İsminizi ve soyisminizi girin.">
-                                </div>
+                                <img src="@Model.ImageURL" class="avatar img-circle img-thumbnail" alt="avatar">
+                                <input type="file" name="ImageURL" class="text-center center-block file-upload">
                             </div>
+                        </div><br>
+                    </div><!--/col-3-->
 
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="username"><h4>Kullanıcı Adı</h4></label>
-                                    <input type="text" class="form-control" name="UserName" value="@Model.UserName" id="username" placeholder="Kullanıcı Adı" title="Kullanıcı adınızı girin.">
+                    <div class="col-sm-9">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="home">
+
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a data-toggle="tab" href="/User/UserEdit">Düzenle</a></li>
+                                </ul>
+
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="name_surname"><h4> Ad Soyad</h4></label>
+                                        <input type="text" class="form-control" name="NameSurname" value="@Model.NameSurname" id="name_surname" placeholder="Ad - Soyad" title="İsminizi ve soyisminizi girin.">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="email"><h4>E-mail</h4></label>
-                                    <input type="email" class="form-control" name="Email" value="@Model.Email" id="email" placeholder="E-mail" title="E-mail adresinizi girin.">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="username"><h4>Kullanıcı Adı</h4></label>
+                                        <input type="text" class="form-control" name="UserName" value="@Model.UserName" id="username" placeholder="Kullanıcı Adı" title="Kullanıcı adınızı girin.">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="password"><h4>Şifre</h4></label>
-                                    <input type="password" class="form-control" name="Password" value="@Model.Password" id="password" placeholder="Şifre" title="Yeni şifre girin.">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="email"><h4>E-mail</h4></label>
+                                        <input type="email" class="form-control" name="Email" value="@Model.Email" id="email" placeholder="E-mail" title="E-mail adresinizi girin.">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="facebook"><h4>Facebook Link</h4></label>
-                                    <input type="text" class="form-control" name="FacebookURL" value="@Model.FacebookURL" id="facebook_link" placeholder="Facebook Linkiniz" title="Varsa facebook linki girin.">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="password"><h4>Şifre</h4></label>
+                                        <input type="password" class="form-control" name="Password" value="@Model.Password" id="password" placeholder="Şifre" title="Yeni şifre girin.">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="twitter"><h4>Twitter Link</h4></label>
-                                    <input type="text" class="form-control" name="TwitterURL" value="@Model.TwitterURL" id="twitter_link" placeholder="Twitter Linkiniz" title="Varsa twitter linki girin.">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="facebook"><h4>Facebook Link</h4></label>
+                                        <input type="text" class="form-control" name="FacebookURL" value="@Model.FacebookURL" id="facebook_link" placeholder="Facebook Linkiniz" title="Varsa facebook linki girin.">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="instagram"><h4>Instagram Link</h4></label>
-                                    <input type="text" class="form-control" name="InstagramURL" value="@Model.InstagramURL" id="instagram_link" placeholder="İntagram Linkiniz" title="Varsa instagram linki girin.">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="twitter"><h4>Twitter Link</h4></label>
+                                        <input type="text" class="form-control" name="TwitterURL" value="@Model.TwitterURL" id="twitter_link" placeholder="Twitter Linkiniz" title="Varsa twitter linki girin.">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="googleplus"><h4>Google+ Link</h4></label>
-                                    <input type="text" class="form-control" name="GooglePlusURL" value="@Model.GooglePlusURL" id="googleplus_link" placeholder="Google+ Linkiniz" title="Varsa google+ linki girin.">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="instagram"><h4>Instagram Link</h4></label>
+                                        <input type="text" class="form-control" name="InstagramURL" value="@Model.InstagramURL" id="instagram_link" placeholder="İntagram Linkiniz" title="Varsa instagram linki girin.">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="tumbler"><h4>Tumbler Link</h4></label>
-                                    <input type="text" class="form-control" name="TumblerURL" value="@Model.TumblrURL" id="tumbler_link" placeholder="Tumbler Linkiniz" title="Varsa tumbler linki girin.">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="googleplus"><h4>Google+ Link</h4></label>
+                                        <input type="text" class="form-control" name="GooglePlusURL" value="@Model.GooglePlusURL" id="googleplus_link" placeholder="Google+ Linkiniz" title="Varsa google+ linki girin.">
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <div class="col-xs-6">
-                                    <label for="information"><h4> Kitaplık Bilgilerim</h4></label>
-                                    <input type="text" class="form-control" name="Bio" value="@Model.Bio" id="information" placeholder="Kitaplığım " title="Lütfen kütüphaneniz hakkında bilgi verin.">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="tumbler"><h4>Tumbler Link</h4></label>
+                                        <input type="text" class="form-control" name="TumblerURL" value="@Model.TumblrURL" id="tumbler_link" placeholder="Tumbler Linkiniz" title="Varsa tumbler linki girin.">
+                                    </div>
                                 </div>
-                            </div>
 
-
-                            <div class="form-group">
-                                <div class="col-xs-12">
-                                    <br>
-                                    <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Kaydet</button>
-                                    <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Temizle</button>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="information"><h4> Kitaplık Bilgilerim</h4></label>
+                                        <input type="text" class="form-control" name="Bio" value="@Model.Bio" id="information" placeholder="Kitaplığım " title="Lütfen kütüphaneniz hakkında bilgi verin.">
+                                    </div>
                                 </div>
-                            </div>
 
-                        </form>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Kaydet</button>
+                                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Temizle</button>
+                                    </div>
+                                </div>
+                                <hr>
 
-                        <hr>
-
-                    </div><!--/tab-pane-->
-                </div><!--/tab-content-->
-            </div><!--/col-9-->
-        </div>
+                            </div><!--/tab-pane-->
+                        </div><!--/tab-content-->
+                    </div><!--/col-9-->
+                </form>
+            </div>
+        </section>
     </div>
     <script>
         $(document).ready(function () {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 
 namespace FurBuuks.Controllers
@@ -31,7 +32,7 @@ namespace FurBuuks.Controllers
         }
 
         [HttpPost]
-        public ActionResult UserEdit(User edited)
+        public ActionResult UserEdit(User edited, HttpPostedFileBase ImageURL )
         {
             if(ModelState.IsValid)
             {
@@ -47,6 +48,12 @@ namespace FurBuuks.Controllers
                 old.TumblrURL = edited.TumblrURL;
                 old.TwitterURL = edited.TwitterURL;
                 old.GooglePlusURL = edited.GooglePlusURL;
+
+                var path = Server.MapPath("/Uploads/UserProfilePicture/");
+                path += edited.Id + ".jpg";
+                ImageURL.SaveAs(path);
+                old.ImageURL = path;
+
                 db.Entry(old).State = EntityState.Modified;
                 db.SaveChanges();
                 Session["User"] = old;
