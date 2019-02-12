@@ -17,6 +17,18 @@ namespace FurBuuks.Controllers
         }
 
         [HttpPost]
+        public ActionResult Index(User u)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Users.Add(u);
+                RedirectToAction("UserEdit", "User");
+            }
+
+            return View();
+        }
+
+        [HttpPost]
         public JsonResult ValidateUser(string email, string password)
         {
             var data = from c in db.Users where c.Email == email && c.Password == password select c;
