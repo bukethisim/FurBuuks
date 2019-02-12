@@ -180,6 +180,7 @@
     <Content Include="Content\js\contact_me.js" />
     <Content Include="Content\js\jqBootstrapValidation.js" />
     <Content Include="Content\mail\contact_me.php" />
+    <Content Include="Content\UserCard.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\vendor\bootstrap\js\bootstrap.bundle.js" />
