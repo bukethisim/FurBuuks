@@ -50,9 +50,9 @@ namespace FurBuuks.Controllers
                 old.GooglePlusURL = edited.GooglePlusURL;
 
                 var path = Server.MapPath("/Uploads/UserProfilePicture/");
-                path += edited.Id + ".jpg";
-                ImageURL.SaveAs(path);
-                old.ImageURL = path;
+                var filename= edited.Id + ".jpg";
+                ImageURL.SaveAs(path + filename);
+                old.ImageURL = "/Uploads/UserProfilePicture/"+ filename;
 
                 db.Entry(old).State = EntityState.Modified;
                 db.SaveChanges();
