@@ -23,7 +23,7 @@ namespace FurBuuks.Controllers
             {
                 db.Users.Add(u);
                 db.SaveChanges();
-                return Redirect("UserEdit", "User");
+                return Redirect("/User/UserEdit/" + u.Id);
             }
 
             return View();
