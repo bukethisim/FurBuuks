@@ -8,64 +8,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
-    <!-- Social Footer, Colour Matching Icons -->
-    <!-- Include Font Awesome Stylesheet in Header -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <!-- // -->
-
     <style>
-        .mainbody {
-            background: #f0f0f0;
+
+        h3{
+            font-size:20px;
         }
-        /* Special class on .container surrounding .navbar, used for positioning it into place. */
-        .navbar-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 20;
-            margin-left: -15px;
-            margin-right: -15px;
+       
+        .panel-body{
+            padding:15px;
+            box-sizing:border-box;
         }
-
-            /* Flip around the padding for proper display in narrow viewports */
-            .navbar-wrapper .container {
-                padding-left: 0;
-                padding-right: 0;
-            }
-
-            .navbar-wrapper .navbar {
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-
-        .navbar-content {
-            width: 320px;
-            padding: 15px;
-            padding-bottom: 0px;
-        }
-
-            .navbar-content:before, .navbar-content:after {
-                display: table;
-                content: "";
-                line-height: 0;
-            }
-
-        .navbar-nav.navbar-right:last-child {
-            margin-right: 15px !important;
-        }
-
-        .navbar-footer {
-            background-color: #DDD;
-        }
-
-        .navbar-footer-content {
-            padding: 15px 15px 15px 15px;
+        .panel{
+            background-color:white;
         }
 
         .dropdown-menu {
@@ -180,7 +134,7 @@
                         <div class="panel-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <img src="@Model.ImageURL" height="300" width="300" />
+                                    <img src="@Model.ImageURL" height="100" width="100" style="border-radius:100px;"  />
                                     <hr>
                                     <h3><strong>@Model.UserName  <a href="/User/UserEdit/@Model.Id" class="btn ">Profili Düzenle</a> </strong></h3>
                                     <hr>
@@ -217,7 +171,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <!--- \\\\\\\Post-->
                     <div class="card gedf-card">
                         <div class="card-header">
