@@ -37,19 +37,18 @@
                 <div class="error-message" style="visibility:hidden;">Kullanıcı adı veya şifre hatalı!!</div>
                 <input type="text" placeholder="Kullanıcı adı ya da Şifre" name="email" id="email">
                 <input type="password" placeholder="Şifre" name="password" id="password">
-                <input type="button" value="Login" id="btn_login" />
+                <input type="button" value="Giriş" id="btn_login" />
                 <a href="/Login/RePassword">Şifreni mi unuttun?</a>
             </div>
-            <form method="post">
-                <div class="register-show">
-                    <h2>KAYDOL</h2>
-                    <input type="text" name="UserName" placeholder="Kullanıcı Adı" />
-                    <input type="text" name="Email" placeholder="Email">
-                    <input type="password" name="Password" placeholder="Şifre">
-                    <input type="password" name="" placeholder="Şifre Tekrar">
-                    <button>Kaydol</button>
-                </div>
-            </form>
+            <div class="register-show">
+                <h2>KAYDOL</h2>
+                <div class="error-message" style="visibility:hidden;"></div>
+                <input type="text" id="username_up" name="UserName" placeholder="Kullanıcı Adı" />
+                <input type="text" id="email_up" name="Email" placeholder="Email">
+                <input type="password" id="password_up" name="Password" placeholder="Şifre">
+                <input type="password" id="password_check" placeholder="Şifre Tekrar">
+                <input type="button" value="Kaydol" id="btn_signup">
+            </div>
         </div>
     </div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -80,7 +79,7 @@
                 $('.register-show').removeClass('show-log-panel');
             }
         });</script>
-
+    <!--Sign In-->
     <script>
         $(document).ready(function () {
             $('#btn_login').click(function () {
@@ -101,6 +100,40 @@
                         else {
                             $(".error-message").css("visibility", "visible")
                             $("#password").val("")
+                        }
+                           },
+                    error: function () {
+                        console.log('Login Fail!!!');
+                    }
+                });
+            });
+        });
+    </script>
+    <!--Sign Up-->
+    <script>
+        $(document).ready(function () {
+            $('#btn_signup').click(function () {
+                var data = {
+                    "email": $("#email_up").val(),
+                    "username": $("#username_up").val(),
+                    "password": $("#password_up").val(),
+                    "passwordCheck": $("#password_check").val()
+                    };
+                $.ajax({
+                    url: "/Login/UserSignUp",
+                    type: "POST",
+                    data: JSON.stringify(data),
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function (response) {
+                        if (response.Success) {
+                            window.location.href = "@Url.Action("UserEdit","User",Session["User"])";
+                        }
+                        else {
+                            $(".error-message").css("visibility", "visible");
+                            $(".error-message").text(response.Error);
+                            $("#password_up").val("");
+                            $("#password_check").val("");
                         }
                            },
                     error: function () {
