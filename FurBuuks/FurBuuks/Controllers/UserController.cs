@@ -14,8 +14,16 @@ namespace FurBuuks.Controllers
         // GET: User
         public ActionResult Index()
         {
-            var user = db.Users.FirstOrDefault(); /*((User)Session["User"]);*/
-            ViewBag.UserPhoto = user.ImageURL;
+            var user = ((User)Session["User"]);
+            ViewBag.AllComments = (from c in db.Comments
+                                   orderby c.CommentDate descending
+                                   select c)
+                                  .ToList();
+            //ViewBag.UserPhoto = from p in db.Users
+            //                    join com in db.Comments
+            //                    on p.Id equals com.UserId
+            //                    where p.Id == user.Id
+            //                    select p.ImageURL;
             return View(user);
         }
 
@@ -23,7 +31,7 @@ namespace FurBuuks.Controllers
         {
             var user = ((User)Session["User"]);
             return View(user);
-        }  
+        }
 
         [HttpGet]
         public ActionResult UserEdit(int id)
@@ -32,16 +40,16 @@ namespace FurBuuks.Controllers
         }
 
         [HttpPost]
-        public ActionResult UserEdit(User edited, HttpPostedFileBase ImageURL )
+        public ActionResult UserEdit(User edited, HttpPostedFileBase ImageURL)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var old = db.Users.Find(edited.Id);
                 old.NameSurname = edited.NameSurname;
                 old.Password = edited.Password;
                 old.UserName = edited.UserName;
                 old.Bio = edited.Bio;
-             
+
                 old.Email = edited.Email;
                 old.FacebookURL = edited.FacebookURL;
                 old.InstagramURL = edited.InstagramURL;
@@ -50,9 +58,9 @@ namespace FurBuuks.Controllers
                 old.GooglePlusURL = edited.GooglePlusURL;
 
                 var path = Server.MapPath("/Uploads/UserProfilePicture/");
-                var filename= edited.Id + ".jpg";
+                var filename = edited.Id + ".jpg";
                 ImageURL.SaveAs(path + filename);
-                old.ImageURL = "/Uploads/UserProfilePicture/"+ filename;
+                old.ImageURL = "/Uploads/UserProfilePicture/" + filename;
 
                 db.Entry(old).State = EntityState.Modified;
                 db.SaveChanges();
