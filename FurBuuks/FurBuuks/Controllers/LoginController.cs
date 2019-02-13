@@ -22,7 +22,8 @@ namespace FurBuuks.Controllers
             if (ModelState.IsValid)
             {
                 db.Users.Add(u);
-                RedirectToAction("UserEdit", "User");
+                db.SaveChanges();
+                return Redirect("/User/UserEdit/" + u.Id);
             }
 
             return View();

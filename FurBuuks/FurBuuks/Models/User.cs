@@ -11,7 +11,6 @@ namespace FurBuuks.Models
     {
         [Key]
         public int Id { get; set; }
-        [Required]
         [MaxLength(100)]
         public string NameSurname { get; set; }
         [Required]
