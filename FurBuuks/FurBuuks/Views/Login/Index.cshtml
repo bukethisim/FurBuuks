@@ -34,6 +34,7 @@
         <div class="white-panel">
             <div class="login-show">
                 <h2>GİRİŞ</h2>
+                <div class="error-message" style="visibility:hidden;">Kullanıcı adı veya şifre hatalı!!</div>
                 <input type="text" placeholder="Kullanıcı adı ya da Şifre" name="email" id="email">
                 <input type="password" placeholder="Şifre" name="password" id="password">
                 <input type="button" value="Login" id="btn_login" />
@@ -51,7 +52,7 @@
             </form>
         </div>
     </div>
-    @Html.ValidationSummary()
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $(document).ready(function () {
             $('.login-info-box').fadeOut();
@@ -78,8 +79,7 @@
                 $('.login-show').addClass('show-log-panel');
                 $('.register-show').removeClass('show-log-panel');
             }
-        });
-    </script>
+        });</script>
 
     <script>
         $(document).ready(function () {
@@ -95,13 +95,14 @@
                     dataType: "json",
                     contentType: "application/json",
                     success: function (response) {
-                        debugger;
                         if (response.Success) {
                             window.location.href = "@Url.Action("Index","User")";
-                           }
-                        else
-                            window.location.href = "@Url.Action("Index", "Login")";
-                    },
+                        }
+                        else {
+                            $(".error-message").css("visibility", "visible")
+                            $("#password").val("")
+                        }
+                           },
                     error: function () {
                         console.log('Login Fail!!!');
                     }
