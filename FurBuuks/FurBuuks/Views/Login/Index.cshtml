@@ -18,23 +18,23 @@
 <body>
     <div class="login-reg-panel">
         <div class="login-info-box">
-            <h2>Have an account?</h2>
-            <p>Lorem ipsum dolor sit amet</p>
-            <label id="label-register" for="log-reg-show">Login</label>
+            <h2>Hesabın var mı?</h2>
+            <p>Kullanıcı adını veya E-posta adresini kullanarak hemen giriş yap.</p>
+            <label id="label-register" for="log-reg-show">Giriş</label>
             <input type="radio" name="active-log-panel" id="log-reg-show" checked="checked">
         </div>
 
         <div class="register-info-box">
-            <h2>Don't have an account?</h2>
-            <p>Lorem ipsum dolor sit amet</p>
-            <label id="label-login" for="log-login-show">Register</label>
+            <h2>Hesabın yok mu?</h2>
+            <p>Kullanıcı adı ve E-posta adresinle kolayca kaydol.</p>
+            <label id="label-login" for="log-login-show">Kaydol</label>
             <input type="radio" name="active-log-panel" id="log-login-show">
         </div>
 
         <div class="white-panel">
             <div class="login-show">
                 <h2>GİRİŞ</h2>
-                <div class="error-message" style="visibility:hidden;">Kullanıcı adı veya şifre hatalı!!</div>
+                <div class="error-message" style="display:none;">Kullanıcı adı veya şifre hatalı!!</div>
                 <input type="text" placeholder="Kullanıcı adı ya da Şifre" name="email" id="email">
                 <input type="password" placeholder="Şifre" name="password" id="password">
                 <input type="button" value="Giriş" id="btn_login" />
@@ -42,7 +42,7 @@
             </div>
             <div class="register-show">
                 <h2>KAYDOL</h2>
-                <div class="error-message" style="visibility:hidden;"></div>
+                <div class="error-message" style="display:none;"></div>
                 <input type="text" id="username_up" name="UserName" placeholder="Kullanıcı Adı" />
                 <input type="text" id="email_up" name="Email" placeholder="Email">
                 <input type="password" id="password_up" name="Password" placeholder="Şifre">
@@ -98,7 +98,7 @@
                             window.location.href = "@Url.Action("Index","User")";
                         }
                         else {
-                            $(".error-message").css("visibility", "visible")
+                            $(".error-message").fadeIn("slow");
                             $("#password").val("")
                         }
                            },
@@ -130,8 +130,8 @@
                             window.location.href = "@Url.Action("UserEdit","User",Session["User"])";
                         }
                         else {
-                            $(".error-message").css("visibility", "visible");
                             $(".error-message").text(response.Error);
+                            $(".error-message").fadeIn("slow");
                             $("#password_up").val("");
                             $("#password_check").val("");
                         }
