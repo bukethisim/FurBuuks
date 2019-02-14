@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-clean-blog/blob/master/LICENSE)
  */
 
-body {
+body._layout {
     font-size: 20px;
     color: #212529;
     font-family: Lora,'Times New Roman',serif
@@ -90,12 +90,12 @@ img::-moz-selection {
     font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif
 }
 
-    #mainNav .navbar-brand {
+    #mainNav ._layout.navbar-brand {
         font-weight: 800;
         color: #343a40
     }
 
-    #mainNav .navbar-toggler {
+    #mainNav ._layout.navbar-toggler {
         font-size: 12px;
         font-weight: 800;
         padding: 13px;
@@ -103,7 +103,7 @@ img::-moz-selection {
         color: #343a40
     }
 
-    #mainNav .navbar-nav > li.nav-item > a {
+    #mainNav ._layout.navbar-nav > li._layout.nav-item > a {
         font-size: 12px;
         font-weight: 800;
         letter-spacing: 1px;
@@ -116,21 +116,21 @@ img::-moz-selection {
         background: gray;
     }
 
-        #mainNav .navbar-brand {
+        #mainNav ._layout.navbar-brand {
             padding: 10px 20px;
             color: #fff
         }
 
-            #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+            #mainNav ._layout.navbar-brand:focus, #mainNav ._layout.navbar-brand:hover {
                 color: rgba(255,255,255,.8)
             }
 
-        #mainNav .navbar-nav > li.nav-item > a {
+        #mainNav ._layout.navbar-nav > li._layout.nav-item > a {
             padding: 10px 20px;
             color: #fff
         }
 
-            #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
+            #mainNav ._layout.navbar-nav > li._layout.nav-item > a:focus, #mainNav ._layout.navbar-nav > li._layout.nav-item > a:hover {
                 color: rgba(255,255,255,.8)
             }
 }
@@ -155,19 +155,19 @@ img::-moz-selection {
             background-color: rgba(255,255,255,.9)
         }
 
-            #mainNav.is-fixed .navbar-brand {
+            #mainNav.is-fixed ._layout.navbar-brand {
                 color: #212529
             }
 
-                #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
+                #mainNav.is-fixed ._layout.navbar-brand:focus, #mainNav.is-fixed ._layout.navbar-brand:hover {
                     color: #0085a1
                 }
 
-            #mainNav.is-fixed .navbar-nav > li.nav-item > a {
+            #mainNav.is-fixed ._layout.navbar-nav > li._layout.nav-item > a {
                 color: #212529
             }
 
-                #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
+                #mainNav.is-fixed ._layout.navbar-nav > li._layout.nav-item > a:focus, #mainNav.is-fixed ._layout.navbar-nav > li._layout.nav-item > a:hover {
                     color: #0085a1
                 }
 
