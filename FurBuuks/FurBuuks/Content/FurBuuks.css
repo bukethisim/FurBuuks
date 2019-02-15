@@ -54,7 +54,6 @@ a {
     }
 
     .bottom-item a{
-        padding:0 20px;
         border:1px solid lightgray;
     }
 
@@ -68,8 +67,11 @@ a {
 
 @media (min-width: 992px) {
     .gedf-main {
-        padding-left: 4rem;
-        padding-right: 4rem;
+        padding:0px;
+    }
+
+    .container-fluid{
+        padding:0px 100px;
     }
 
     .gedf-card {

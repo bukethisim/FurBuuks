@@ -15,10 +15,12 @@ namespace FurBuuks.Controllers
         public ActionResult Index()
         {
             var user = ((User)Session["User"]);
+            user = db.Users.FirstOrDefault();
             ViewBag.AllComments = (from c in db.Comments
                                    orderby c.CommentDate descending
                                    select c)
                                   .ToList();
+            ViewBag.AllBooks = db.Books.ToList();
             //ViewBag.UserPhoto = from p in db.Users
             //                    join com in db.Comments
             //                    on p.Id equals com.UserId
