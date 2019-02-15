@@ -164,6 +164,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\clean-blog.css" />
@@ -192,6 +193,8 @@
     <Content Include="Content\MyBooks\images\rotating_card_thumb3.png" />
     <Content Include="Content\MyBooks\js\bootstrap.min.js" />
     <Content Include="Content\MyBooks\js\jquery-1.10.2.js" />
+    <Content Include="Content\owl.carousel.min.css" />
+    <Content Include="Content\owl.theme.green.min.css" />
     <Content Include="Content\UserCard.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />
@@ -1828,6 +1831,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Web.config">
