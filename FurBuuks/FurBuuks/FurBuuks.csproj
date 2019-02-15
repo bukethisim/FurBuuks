@@ -181,6 +181,17 @@
     <Content Include="Content\js\jqBootstrapValidation.js" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\mail\contact_me.php" />
+    <Content Include="Content\MyBooks\css\bootstrap.css" />
+    <Content Include="Content\MyBooks\css\rotating-card.css" />
+    <Content Include="Content\MyBooks\images\rotating_card_profile.png" />
+    <Content Include="Content\MyBooks\images\rotating_card_profile2.png" />
+    <Content Include="Content\MyBooks\images\rotating_card_profile3.png" />
+    <Content Include="Content\MyBooks\images\rotating_card_thumb.jpg" />
+    <Content Include="Content\MyBooks\images\rotating_card_thumb.png" />
+    <Content Include="Content\MyBooks\images\rotating_card_thumb2.png" />
+    <Content Include="Content\MyBooks\images\rotating_card_thumb3.png" />
+    <Content Include="Content\MyBooks\js\bootstrap.min.js" />
+    <Content Include="Content\MyBooks\js\jquery-1.10.2.js" />
     <Content Include="Content\UserCard.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap.min.css" />
@@ -1806,6 +1817,8 @@
     <Content Include="Content\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Content\vendor\jquery\jquery.min.map" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Content\MyBooks\css\.DS_Store" />
+    <Content Include="Content\MyBooks\images\.DS_Store" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1834,6 +1847,7 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\UserProfile.cshtml" />
     <Content Include="Views\User\UserEdit.cshtml" />
+    <Content Include="Views\User\MyBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
