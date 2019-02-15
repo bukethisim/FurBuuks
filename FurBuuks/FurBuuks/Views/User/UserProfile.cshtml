@@ -10,16 +10,17 @@
 <head>
     <style>
 
-        h3{
-            font-size:20px;
+        h3 {
+            font-size: 20px;
         }
-       
-        .panel-body{
-            padding:15px;
-            box-sizing:border-box;
+
+        .panel-body {
+            padding: 15px;
+            box-sizing: border-box;
         }
-        .panel{
-            background-color:white;
+
+        .panel {
+            background-color: white;
         }
 
         .dropdown-menu {
@@ -134,7 +135,7 @@
                         <div class="panel-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <img src="@Model.ImageURL" height="100" width="100" style="border-radius:100px;"  />
+                                    <img src="@Model.ImageURL" height="100" width="100" style="border-radius:100px;" />
                                     <hr>
                                     <h3><strong>@Model.UserName  <a href="/User/UserEdit/@Model.Id" class="btn ">Profili Düzenle</a> </strong></h3>
                                     <hr>
@@ -197,15 +198,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>10 min ago</div>
-                            <a class="card-link" href="#">
-                                <h5 class="card-title">İçerik</h5>
-                            </a>
-                            <p class="card-text">
-                                Yorum Buraya gelecek
-                            </p>
-                        </div>
+                        @foreach (var item in Model.Comments)
+                        {<div class="card-body">
+                                <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>@item.CommentDate.ToString("dd.MM.yyyy")</div>
+                                <p class="card-text">
+                                    @item.Content
+                                </p>
+                            </div>
+
+                        }
+
                         <!-- Post /////-->
                     </div>
                 </div>
