@@ -86,5 +86,25 @@ namespace FurBuuks.Controllers
             var user = Session["User"];
             return View(user);
         }
+        [HttpPost]
+        public JsonResult Delete(int id)
+        {
+            try
+            {
+                User user1 = (User)Session["User"];
+                var user1Id = user1.Id;
+                var user = db.Users.Find(user1Id);
+                var d = db.Books.Find(id);
+                db.Entry(user).Collection("Books").Load();
+                user.Books.Remove(d);
+                db.SaveChanges();
+                return Json(true);
+            }
+            catch
+            {
+                return Json(false);
+            }
+        }
+
     }
 }
