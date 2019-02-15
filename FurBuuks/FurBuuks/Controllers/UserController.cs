@@ -71,7 +71,15 @@ namespace FurBuuks.Controllers
             return View(edited);
         }
 
+        [HttpGet]
         public ActionResult MyBooks()
+        {
+            var user = Session["User"];
+            return View(user);
+        }
+
+        [HttpGet]
+        public ActionResult BookEdit()
         {
             var user = Session["User"];
             return View(user);

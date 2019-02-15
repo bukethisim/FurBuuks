@@ -1848,6 +1848,7 @@
     <Content Include="Views\User\UserProfile.cshtml" />
     <Content Include="Views\User\UserEdit.cshtml" />
     <Content Include="Views\User\MyBooks.cshtml" />
+    <Content Include="Views\User\BookEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

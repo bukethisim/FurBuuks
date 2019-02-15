@@ -1,0 +1,98 @@
+﻿@using FurBuuks.Models
+@model User
+@{
+    ViewBag.Title = "BookEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+    <hr>
+    <div class="container bootstrap snippet">
+        <section class="wrapper">
+            <div class="row">
+
+
+                <div class="col-sm-2"></div>
+
+                <div class="col-sm-8">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+                            <form class="form" method="post" id="registrationForm" >
+
+                                @foreach (var item in Model.Books)
+                                {
+                                    <div class="form-group">
+                                        <div class="col-xs-6 text-center">
+                                            <img src="@item.ImageURL" height="200" width="150"  />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label>Kitap Adı: @item.Title</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label>Yazar: @item.Author</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label>Başlangıç Tarihi: @item.BeginTime.ToString("dd.MM.yyyy")</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label>Bitiş Tarihi: @item.EndTime.ToString("dd.MM.yyyy")</label>
+                                        </div>
+                                    </div>
+                                <button>Sil</button>
+                                }
+                                
+                                <hr>
+                            </form>
+                        </div><!--/tab-pane-->
+                    </div><!--/tab-content-->
+                </div><!--/col-9-->
+
+            </div>
+        </section>
+    </div>
+    <script>
+        $(document).ready(function () {
+
+
+            var readURL = function (input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        console.log(e.target.result);
+                        $('.avatar').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+
+            $(".file-upload").on('change', function () {
+                readURL(this);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
