@@ -1,4 +1,5 @@
 ﻿using FurBuuks.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -83,10 +84,33 @@ namespace FurBuuks.Controllers
         [HttpGet]
         public ActionResult BookEdit()
         {
-            var user =(User) Session["User"];
+            var user = (User)Session["User"];
             int id = user.Id;
             return View(db.Users.Find(id));
         }
+        [HttpPost]
+        public ActionResult BookEdit(User edited, DateTime? BeginTime, DateTime? EndTime)
+        {
+            //if (ModelState.IsValid)
+            //{
+                var old = db.Users.Find(edited.Id);
+                foreach (var item in old.Books)
+                {
+                    foreach (var ed in edited.Books)
+                    {
+                        item.BeginTime = ed.BeginTime;
+                        item.EndTime = ed.EndTime;
+                    }
+
+                }
+
+                db.Entry(old).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("BookEdit");
+            //}
+            //return View(edited);
+        }
+
         [HttpPost]
         public JsonResult Delete(int id)
         {
