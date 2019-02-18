@@ -76,15 +76,16 @@ namespace FurBuuks.Controllers
         [HttpGet]
         public ActionResult MyBooks()
         {
-            var user = Session["User"];
-            return View(user);
+            var user = (User)Session["User"];
+            return View(db.Users.Find(user.Id));
         }
 
         [HttpGet]
         public ActionResult BookEdit()
         {
-            var user = Session["User"];
-            return View(user);
+            var user =(User) Session["User"];
+            int id = user.Id;
+            return View(db.Users.Find(id));
         }
         [HttpPost]
         public JsonResult Delete(int id)

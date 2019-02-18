@@ -29,47 +29,48 @@
 
                         @foreach (var item in Model.Books)
                         {
-                            <div class="row">
-                                <div class="oylesine">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="col-xs-6 text-center">
-                                                <img src="@item.ImageURL" height="200" width="150" />
-                                            </div>
+
+                            <div class="row oylesine  @item.Id">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="col-xs-6 text-center">
+                                            <img src="@item.ImageURL" height="200" width="150" />
                                         </div>
                                     </div>
-
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <div class="col-xs-6">
-                                                <label>Kitap Adı: @item.Title</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-xs-6">
-                                                <label>Yazar: @item.Author</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-xs-6">
-                                                <label>Başlangıç Tarihi: @item.BeginTime.ToString("dd.MM.yyyy")</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-xs-6">
-                                                <label>Bitiş Tarihi: @item.EndTime.ToString("dd.MM.yyyy")</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button rel="@item.Id" class="del">Sil</button>
                                 </div>
 
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label>Kitap Adı: @item.Title</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label>Yazar: @item.Author</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label>Başlangıç Tarihi: @item.BeginTime.ToString("dd.MM.yyyy")</label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label>Bitiş Tarihi: @item.EndTime.ToString("dd.MM.yyyy")</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <button rel="@item.Id" class="del btn btn-danger"
+                                            type="button">
+                                        Sil
+                                    </button>
+                                </div>
+                                <hr />
                             </div>
-                            <hr />
-
-
                         }
 
 
@@ -90,8 +91,7 @@
                     method: "POST",
                     success: function (IsDeleted) {
                         if (IsDeleted) {
-                            $(".oylesine").slideUp("slow");
-                            
+                            $(".oylesine." + id).slideUp("slow");
                         }
                         else
                             alert("An error has occured.");
