@@ -24,7 +24,7 @@ namespace FurBuuks.Models
         public string ImageURL { get; set; }
         [MaxLength(500)]
         public string Bio { get; set; }
-        public virtual List<Book> Books { get; set; }
+        public virtual List<UserBook> UserBooks { get; set; }
         public virtual List<Comment> Comments { get; set; }
         public string FacebookURL { get; set; }
         public string InstagramURL { get; set; }

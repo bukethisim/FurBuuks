@@ -27,14 +27,14 @@
 
                     <form class="form" method="post" id="registrationForm">
 
-                        @foreach (var item in Model.Books)
+                        @foreach (var item in Model.UserBooks)
                         {
 
                             <div class="row oylesine  @item.Id">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="col-xs-6 text-center">
-                                            <img src="@item.ImageURL" height="200" width="150" />
+                                            <img src="@item.Book.ImageURL" height="200" width="150" />
                                         </div>
                                     </div>
                                 </div>
@@ -42,24 +42,24 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="col-xs-6">
-                                            <label>Kitap Adı: @item.Title</label>
+                                            <label>Kitap Adı: @item.Book.Title</label>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-xs-6">
-                                            <label>Yazar: @item.Author</label>
+                                            <label>Yazar: @item.Book.Author</label>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="col-xs-6">
-                                            <label>Başlangıç Tarihi: @item.BeginTime.ToString("dd.MM.yyyy")</label>
+                                            <label>Başlangıç Tarihi: @item.BeginTime.Value.ToString("dd.MM.yyyy")</label>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-xs-6">
-                                            <label>Bitiş Tarihi: @item.EndTime.ToString("dd.MM.yyyy")</label>
+                                            <label>Bitiş Tarihi: @item.EndTime.Value.ToString("dd.MM.yyyy")</label>
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                                             type="button">
                                         Sil
                                     </button>
-                                    <button  type="button" class="btn btn-success " data-toggle="modal" data-target="#UyeOl">
+                                    <button  type="button" class="btn btn-success " data-toggle="modal" data-target="@Html.Raw("#UyeOl"+item.Id)">
                                         Düzenle
                                     </button>
                                 </div>
@@ -85,11 +85,11 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label>Başlangıç Tarihi:</label>
-                                                <input type="date" name="BeginTime" class="form-control" placeholder="@item.BeginTime.ToString("dd.MM.yyyy")" />
+                                                <input type="date" name="BeginTime" class="form-control" placeholder="@item.BeginTime.Value.ToString("dd.MM.yyyy")" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Bitiş Tarihi:</label>
-                                                <input type="date" name="EndTime" class="form-control" placeholder="@item.EndTime.ToString("dd.MM.yyyy")" />
+                                                <input type="date" name="EndTime" class="form-control" placeholder="@item.EndTime.Value.ToString("dd.MM.yyyy")" />
                                             </div>
                                         </div>
                                         <div class="modal-footer">

@@ -161,6 +161,7 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\FurBuuksContext.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

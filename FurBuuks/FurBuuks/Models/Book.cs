@@ -16,8 +16,6 @@ namespace FurBuuks.Models
         public string Author { get; set; }
         [MaxLength(1000)]
         public string ImageURL { get; set; }
-        public virtual List<User> User { get; set; }
-        public DateTime BeginTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public virtual List<UserBook> UserBooks { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace FurBuuks.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(FurBuuks.Models.FurBuuksContext context)

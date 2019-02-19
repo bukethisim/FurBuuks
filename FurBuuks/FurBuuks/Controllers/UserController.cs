@@ -91,12 +91,12 @@ namespace FurBuuks.Controllers
         [HttpPost]
         public ActionResult BookEdit(User edited, DateTime? BeginTime, DateTime? EndTime)
         {
-            //if (ModelState.IsValid)
-            //{
+            if (ModelState.IsValid)
+            {
                 var old = db.Users.Find(edited.Id);
-                foreach (var item in old.Books)
+                foreach (var item in old.UserBooks)
                 {
-                    foreach (var ed in edited.Books)
+                    foreach (var ed in edited.UserBooks)
                     {
                         item.BeginTime = ed.BeginTime;
                         item.EndTime = ed.EndTime;
@@ -107,8 +107,8 @@ namespace FurBuuks.Controllers
                 db.Entry(old).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("BookEdit");
-            //}
-            //return View(edited);
+            }
+            return View(edited);
         }
 
         [HttpPost]
@@ -119,9 +119,9 @@ namespace FurBuuks.Controllers
                 User user1 = (User)Session["User"];
                 var user1Id = user1.Id;
                 var user = db.Users.Find(user1Id);
-                var d = db.Books.Find(id);
+                var d = db.UserBooks.Find(id);
                 db.Entry(user).Collection("Books").Load();
-                user.Books.Remove(d);
+                user.UserBooks.Remove(d);
                 db.SaveChanges();
                 return Json(true);
             }
