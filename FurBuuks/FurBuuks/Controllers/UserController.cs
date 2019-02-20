@@ -88,27 +88,26 @@ namespace FurBuuks.Controllers
             int id = user.Id;
             return View(db.Users.Find(id));
         }
-        [HttpPost]
-        public ActionResult BookEdit(User edited, DateTime? BeginTime, DateTime? EndTime)
+
+        public JsonResult EditBook(UserBook edited, DateTime? BeginTime, DateTime? EndTime)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var old = db.Users.Find(edited.Id);
-                foreach (var item in old.UserBooks)
+                if (ModelState.IsValid)
                 {
-                    foreach (var ed in edited.UserBooks)
-                    {
-                        item.BeginTime = ed.BeginTime;
-                        item.EndTime = ed.EndTime;
-                    }
-
+                    var old = db.UserBooks.Find(edited.Id);
+                    old.BeginTime = BeginTime;
+                    old.EndTime = EndTime;
+                    db.Entry(old).State = EntityState.Modified;
+                    db.SaveChanges();
                 }
-
-                db.Entry(old).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("BookEdit");
+                return Json(new { Succes = true }, JsonRequestBehavior.AllowGet);
             }
-            return View(edited);
+            catch
+            {
+                return Json(new { Succes = false }, JsonRequestBehavior.AllowGet);
+            }
+
         }
 
         [HttpPost]

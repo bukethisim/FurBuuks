@@ -89,15 +89,15 @@
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label>Başlangıç Tarihi:</label>
-                                                <input type="text" onclick="this.type='date'" onblur="this.type='text'" name="BeginTime" class="form-control" placeholder="@item.BeginTime.Value.ToString("dd.MM.yyyy")" />
+                                                <input type="text" onclick="this.type='date'" onblur="this.type='text'" name="BeginTime" class="form-control" id="BeginTime" placeholder="@Html.Raw(item.BeginTime.HasValue ? item.BeginTime.Value.ToString("dd.MM.yyyy") : string.Empty)" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Bitiş Tarihi:</label>
-                                                <input type="text"onclick="this.type='date'" onblur="this.type='text'" name="EndTime" class="form-control" placeholder="@item.EndTime.Value.ToString("dd.MM.yyyy")" />
+                                                <input type="text"onclick="this.type='date'" onblur="this.type='text'" name="EndTime" class="form-control" id="EndTime" placeholder="@Html.Raw(item.EndTime.HasValue ? item.EndTime.Value.ToString("dd.MM.yyyy") : string.Empty)" />
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                                            <button type="button" class="save btn btn-primary" rel="@item.Id">Kaydet</button>
                                         </div>
                                     </div>
                                 </div>
@@ -128,6 +128,29 @@
                             alert("An error has occured.");
                     }
                 });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".save").click(function () {
+                var btn = $(this);
+                var id = btn.attr("rel");
+                var data = {
+                    "BeginTime": $("#BeginTime").val(),
+                    "EndTime": $("#EndTime").val()
+                };
+                $.ajax({
+                    url: "/User/EditBook",
+                    method: "POST",
+                    success: function (IsSave) {
+                        if (IsSave.Success)
+                            window.location.href = "@Url.Action("BookEdit","User")";
+
+                    }
+                });
+
             });
         });
     </script>
