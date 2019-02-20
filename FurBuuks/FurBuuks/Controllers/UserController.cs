@@ -77,7 +77,7 @@ namespace FurBuuks.Controllers
         [HttpGet]
         public ActionResult MyBooks()
         {
-            var user = (User)Session["User"];
+            User user = (User)Session["User"];
             return View(db.Users.Find(user.Id));
         }
 

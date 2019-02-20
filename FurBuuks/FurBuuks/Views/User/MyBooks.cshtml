@@ -183,9 +183,9 @@
                                                 <div class="content">
                                                     <div class="main">
                                                         <h5 class="text-center"><span class="datetitle">Başlangıç</span></h5>
-                                                        <p class="text-center">@item.BeginTime.Value.ToString("dd.MM.yyyy")</p>
+                                                        <p class="text-center">@Html.Raw(item.BeginTime.HasValue ? item.BeginTime.Value.ToString("dd.MM.yyyy") : string.Empty)</p>
                                                         <h5 class="text-center"><span class="datetitle">Bitiş</span></h5>
-                                                        <p class="text-center">@item.EndTime.Value.ToString("dd.MM.yyyy")</p>
+                                                        <p class="text-center">@Html.Raw(item.EndTime.HasValue ? item.EndTime.Value.ToString("dd.MM.yyyy") : string.Empty)</p>
 
                                                     </div>
                                                 </div>
