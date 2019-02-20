@@ -68,28 +68,28 @@
                                             type="button">
                                         Sil
                                     </button>
-                                    <button  type="button" class="btn btn-success " data-toggle="modal" data-target="@Html.Raw("#UyeOl"+item.Id)">
+                                    <button type="button" class="edit btn btn-success " data-toggle="modal" rel="@item.Id">
                                         Düzenle
                                     </button>
                                 </div>
                                 <hr />
                             </div>
 
-                            <div class="modal fade" id="UyeOl" tabindex="-1" role="dialog" aria-labelledby="">
+                            <div class="modal" id="EditBook" role="dialog" tabindex="-1">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <button type="button" rel="closebtn" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                         </div>
 
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label>Başlangıç Tarihi:</label>
-                                                <input type="date" name="BeginTime" class="form-control" placeholder="@item.BeginTime.Value.ToString("dd.MM.yyyy")" />
+                                                <input type="text" onclick="this.type='date'" onblur="this.type='text'" name="BeginTime" class="form-control" placeholder="@item.BeginTime.Value.ToString("dd.MM.yyyy")" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Bitiş Tarihi:</label>
-                                                <input type="date" name="EndTime" class="form-control" placeholder="@item.EndTime.Value.ToString("dd.MM.yyyy")" />
+                                                <input type="text"onclick="this.type='date'" onblur="this.type='text'" name="EndTime" class="form-control" placeholder="@item.EndTime.Value.ToString("dd.MM.yyyy")" />
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -126,6 +126,25 @@
                 });
             });
         });
+    </script>
+
+    <script>
+            $(document).ready(function () {
+                $(".edit").click(function () {
+                    var btn = $(this);
+                    var id = btn.attr("rel")
+                    $("#EditBook").fadeIn();
+                })
+            })
+        </script>
+    <script>
+        $(document).ready(function () {
+            $(".close").click(function () {
+                var btn = $(this);
+                var id = btn.attr("rel")
+                $("#EditBook").fadeOut("slow");
+            })
+        })
     </script>
 </body>
 </html>
