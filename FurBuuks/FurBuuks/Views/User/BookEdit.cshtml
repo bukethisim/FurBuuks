@@ -54,12 +54,16 @@
 
                                     <div class="form-group">
                                         <div class="col-xs-6">
-                                            <label>Başlangıç Tarihi: @item.BeginTime.Value.ToString("dd.MM.yyyy")</label>
+                                            <label>
+                                                Başlangıç Tarihi: @Html.Raw(item.BeginTime.HasValue ? item.BeginTime.Value.ToString("dd.MM.yyyy") : string.Empty)
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div class="col-xs-6">
-                                            <label>Bitiş Tarihi: @item.EndTime.Value.ToString("dd.MM.yyyy")</label>
+                                            <label>
+                                                Bitiş Tarihi: @Html.Raw(item.EndTime.HasValue ? item.EndTime.Value.ToString("dd.MM.yyyy") : string.Empty)
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
