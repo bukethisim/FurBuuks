@@ -97,7 +97,7 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="save btn btn-primary" rel="@item.Id">Kaydet</button>
+                                            <button type="button" class="save btn btn-primary" rel="">Kaydet</button>
                                         </div>
                                     </div>
                                 </div>
@@ -167,7 +167,8 @@
         $(document).ready(function () {
             $(".edit").click(function () {
                 var btn = $(this);
-                var id = btn.attr("rel")
+                var id = btn.attr("rel");
+                $("#EditBook .save").attr("rel", id);
                 $("#EditBook").fadeIn();
             })
         })
