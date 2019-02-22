@@ -138,6 +138,25 @@ body .no-padding {
     margin-right: 7px;
 }
 
-.gedf-card.comment-tools{
-    margin-bottom:10px;
+.gedf-card.comment-tools {
+    margin-bottom: 10px;
+}
+
+.comment-model .modal {
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .comment-model .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
+}
+
+.comment-model .modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
 }
