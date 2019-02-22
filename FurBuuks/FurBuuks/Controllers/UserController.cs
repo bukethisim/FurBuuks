@@ -15,8 +15,8 @@ namespace FurBuuks.Controllers
         // GET: User
         public ActionResult Index()
         {
-            var user = ((User)Session["User"]);
-            user = db.Users.FirstOrDefault();
+            var u = ((User)Session["User"]);
+            User user = db.Users.Find(u.Id);
             ViewBag.AllComments = (from c in db.Comments
                                    orderby c.CommentDate descending
                                    select c)

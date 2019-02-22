@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <link href="~/Content/UserCard.css" rel="stylesheet" />
 <!------ Include the above in your HEAD tag ---------->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -21,7 +21,7 @@
             <!--User Card-->
             <div class="col-md-3 usercard">
                 <div class="card hovercard">
-                    <div class="cardheader" style="">
+                    <div class="cardheader">
                     </div>
                     <div class="avatar">
                         <img alt="" src="@Model.ImageURL">
@@ -49,19 +49,19 @@
                         <div class="status-upload">
                             <ul>
                                 <li>
-                                    <a data-toggle="tooltip" data-placement="bottom" data-original-title="Audio">
+                                    <a data-toggle="modal" data-target="#Extract-modal">
                                         <i class="fas fa-quote-right"></i>
                                         <div class="tool-header">Alıntı</div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tooltip" data-placement="bottom" data-original-title="Video">
+                                    <a data-toggle="modal" data-target="#Review-modal">
                                         <i class="fas fa-pencil-alt"></i>
                                         <div class="tool-header">İnceleme</div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a data-toggle="tooltip" data-placement="bottom" data-original-title="Sound Record">
+                                    <a data-toggle="modal" data-target="#Comment-modal">
                                         <i class="fas fa-comment"></i>
                                         <div class="tool-header">Yorum Yap</div>
                                     </a>
@@ -114,12 +114,73 @@
                     </div>
                     <!-- Post /////-->
                 }
+                <div class="comment-model">
+                    <div class="modal fade" id="Extract-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="comment-model">
+                    <div class="modal fade" id="Review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-
+                <div class="comment-model">
+                    <div class="modal fade" id="Comment-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    ...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--Ends Comments Column-->
-            <!--Offer Card Column-->
             <!--Populer Books Card-->
             <div class="col-md-3">
                 <div class="card gedf-card">
@@ -149,7 +210,7 @@
                 </div>
             </div>
             <!--End Populer Books Card-->
-            <!--End Offer Card Column-->
+
         </div>
     </div>
 </section>
