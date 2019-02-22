@@ -12,8 +12,9 @@ namespace FurBuuks.Controllers
     {
         FurBuuksContext db = new FurBuuksContext();
         // GET: Library
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page,string error)
         {
+            ViewBag.Error = error;
             var user =(User) Session["User"];
             ViewBag.User = user.Id;
             List<Book> list = new List<Book>();
@@ -42,15 +43,15 @@ namespace FurBuuks.Controllers
 
         public ActionResult AddToBook(int id)
         {
-            User user = (User)Session["User"];
+            var us = (User)Session["User"];
+            User user = db.Users.Find(us.Id);
 
             if (user.UserBooks == null)
                 user.UserBooks = new List<UserBook>();
             
             if(user.UserBooks.Any(x=> x.Book.Id == id))
             {
-                ViewBag.Error = "Bu kitap zaten kitaplığınız da mevcut.";
-                return RedirectToAction("Index", "Library");
+                return RedirectToAction("Index", "Library",new {error= "Bu kitap kitaplığınızda mevcuttur." });
             }
             else
             {
@@ -58,9 +59,10 @@ namespace FurBuuks.Controllers
                 Book choosenBook = db.Books.Find(id);
                 UserBook newBook = new UserBook();
                 newBook.Book = choosenBook;
-                newBook.User = user;
-                user.UserBooks.Add(newBook);
+                newBook.User = u;
+                u.UserBooks.Add(newBook);
                 db.Entry(u).State= EntityState.Modified;
+                db.Entry(choosenBook).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index", "Library");
             }
