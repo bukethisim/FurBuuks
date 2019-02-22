@@ -74,5 +74,10 @@ namespace FurBuuks.Controllers
                 return Json(new { Success = false, Error = "Girdiğiniz şifreler uyuşmuyor." }, JsonRequestBehavior.AllowGet);
 
         }
+
+        public ActionResult RePassword()
+        {
+            return View();
+        }
     }
 }
