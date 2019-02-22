@@ -32,7 +32,8 @@ namespace FurBuuks.Controllers
 
         public ActionResult UserProfile()
         {
-            var user = ((User)Session["User"]);
+            var u = ((User)Session["User"]);
+            User user = db.Users.Find(u.Id);
             return View(user);
         }
 
