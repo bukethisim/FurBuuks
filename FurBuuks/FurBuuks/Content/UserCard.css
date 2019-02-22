@@ -248,9 +248,11 @@
         margin-bottom: 17px;
     }
 
-.btn {
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    line-height: 18px;
+.dropdown .btn:hover {
+    background: none repeat scroll 0 0 #606060;
+    color: #fff;
+}
+
+.dropdown .btn.btn-link{
+    padding:0 5px;
 }
