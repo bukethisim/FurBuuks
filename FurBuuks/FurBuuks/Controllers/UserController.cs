@@ -119,7 +119,7 @@ namespace FurBuuks.Controllers
                 var user1Id = user1.Id;
                 var user = db.Users.Find(user1Id);
                 var d = db.UserBooks.Find(id);
-                db.Entry(user).Collection("Books").Load();
+                db.Entry(user).Collection("UserBooks").Load();
                 user.UserBooks.Remove(d);
                 db.SaveChanges();
                 return Json(true);
