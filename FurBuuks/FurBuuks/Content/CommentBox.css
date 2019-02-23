@@ -156,7 +156,36 @@ body .no-padding {
 }
 
 .comment-model .modal-dialog {
+    width: 50%;
     display: inline-block;
     text-align: left;
     vertical-align: middle;
+}
+
+.modal-body .panel-body span, button {
+    float: right;
+}
+
+.ui-widget combobox {
+    position: relative;
+    display: inline-block;
+}
+
+.ui-widget combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+}
+
+.ui-widget combobox-input {
+    margin: 0;
+    padding-top: 2px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+}
+
+.counted:not(:focus) {
+    font-style: italic;
 }

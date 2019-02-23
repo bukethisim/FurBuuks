@@ -10,10 +10,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
 
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <link href="~/Content/animate.css" rel="stylesheet" />
 <link href="~/Content/owl.carousel.min.css" rel="stylesheet" />
 <link href="~/Content/owl.theme.green.min.css" rel="stylesheet" />
 <link href="~/Content/CommentBox.css" rel="stylesheet" />
+
 
 <section class="wrapper">
     <div class="container-fluid gedf-wrapper">
@@ -114,66 +119,113 @@
                     </div>
                     <!-- Post /////-->
                 }
+
+                <!--Extract Modal-->
                 <div class="comment-model">
                     <div class="modal fade" id="Extract-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <div class="ui-widget">
+                                        <label>Kitap: </label>
+                                        <select id="combobox">
+                                            <option>Lütfen bir kitap seçiniz.</option>
+                                            @foreach (Book item in ViewBag.UserBooks)
+                                            {
+                                                <option value="Ultrasound Knee Right">@item.Title</option>
+                                            }
+
+                                        </select>
+                                    </div>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <form accept-charset="UTF-8" action="" method="POST">
+                                                <textarea class="form-control counted counted-extract" name="message" placeholder="Alıntınızı buraya yazın.." rows="5" style="margin-bottom:10px;"></textarea>
+                                                <span class="pull-right" id="counter-extract">320 characters remaining</span>
+                                                <br />
+                                                <button class="btn btn-success" type="submit">Paylaş</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!--Review Modal-->
                 <div class="comment-model">
                     <div class="modal fade" id="Review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <div class="ui-widget">
+                                        <label>Kitap: </label>
+                                        <select id="combobox">
+                                            <option>Lütfen bir kitap seçiniz.</option>
+                                            @foreach (Book item in ViewBag.UserBooks)
+                                            {
+                                                <option value="Ultrasound Knee Right">@item.Title</option>
+                                            }
+
+                                        </select>
+                                    </div>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <form accept-charset="UTF-8" action="" method="POST">
+                                                <textarea class="form-control counted counted-review" name="message" placeholder="İncelemenizi buraya yazın" rows="5" style="margin-bottom:10px;"></textarea>
+                                                <span class="pull-right" id="counter-review">320 characters remaining</span>
+                                                <br />
+                                                <button class="btn btn-success" type="submit">Paylaş</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+
+                <!--Comment Modal-->
                 <div class="comment-model">
                     <div class="modal fade" id="Comment-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    ...
+                                    <div class="modal-body1">
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <form accept-charset="UTF-8" action="" method="POST">
+                                                    <textarea class="form-control counted counted-comment" name="message" placeholder="İncelemenizi buraya yazın" rows="5" style="margin-bottom:10px;"></textarea>
+                                                    <span class="pull-right" id="counter-comment">320 characters remaining</span>
+                                                    <br />
+                                                    <button class="btn btn-success" type="submit">Paylaş</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </div>
@@ -183,14 +235,18 @@
             <!--Ends Comments Column-->
             <!--Populer Books Card-->
             <div class="col-md-3">
-                <div class="card gedf-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Popüler Kitaplar</h5>
+                <div class="card gedf-card carousel">
+                    <div class="card-body carousel">
+                        <h5 class="card-title"><strong>Yeni Eklenenler</strong></h5>
                         <div class="owl-carousel owl-theme">
-                            @foreach (Book item in ViewBag.AllBooks)
+                            @foreach (Book item in ViewBag.RecentBooks)
                             {
                                 <div class="item">
-                                    <img src="@item.ImageURL" alt="Alternate Text" style="width:99%;height:241px;" />
+                                    <img src="@item.ImageURL" alt="Alternate Text" style="width:99%;height:200px;" />
+                                    <br />
+                                    <span><strong>@item.Author</strong></span>
+                                    <br />
+                                    <span><strong>@item.Title</strong></span>
                                 </div>
                             }
                         </div>
@@ -198,23 +254,15 @@
                 </div>
                 <div class="card gedf-card">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the
-                            card's content.
-                        </p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
                     </div>
                 </div>
             </div>
             <!--End Populer Books Card-->
-
         </div>
     </div>
 </section>
 
+<!--Owl Carousel script-->
 <script src="~/Scripts/owl.carousel.min.js"></script>
 <script>
     $('.owl-carousel').owlCarousel({
@@ -225,9 +273,109 @@
         stagePadding: 30,
         smartSpeed: 450,
         loop: true,
+        dots: false,
         autoplay: true,
         autoplayTimeout: 5000,
         autoplayHoverPause: true
+    });
+</script>
+
+<!--Char Counter script-->
+<script>
+    (function ($) {
+        /**
+         * attaches a character counter to each textarea element in the jQuery object
+         * usage: $("#myTextArea").charCounter(max, settings);
+         */
+
+        $.fn.charCounter = function (max, settings) {
+            max = max || 100;
+            settings = $.extend({
+                container: "<span></span>",
+                classname: "charcounter",
+                format: "(%1 characters remaining)",
+                pulse: true,
+                delay: 0
+            }, settings);
+            var p, timeout;
+
+            function count(el, container) {
+                el = $(el);
+                if (el.val().length > max) {
+                    el.val(el.val().substring(0, max));
+                    if (settings.pulse && !p) {
+                        pulse(container, true);
+                    };
+                };
+                if (settings.delay > 0) {
+                    if (timeout) {
+                        window.clearTimeout(timeout);
+                    }
+                    timeout = window.setTimeout(function () {
+                        container.html(settings.format.replace(/%1/, (max - el.val().length)));
+                    }, settings.delay);
+                } else {
+                    container.html(settings.format.replace(/%1/, (max - el.val().length)));
+                }
+            };
+
+            function pulse(el, again) {
+                if (p) {
+                    window.clearTimeout(p);
+                    p = null;
+                };
+                el.animate({ opacity: 0.1 }, 100, function () {
+                    $(this).animate({ opacity: 1.0 }, 100);
+                });
+                if (again) {
+                    p = window.setTimeout(function () { pulse(el) }, 200);
+                };
+            };
+
+            return this.each(function () {
+                var container;
+                if (!settings.container.match(/^<.+>$/)) {
+                    // use existing element to hold counter message
+                    container = $(settings.container);
+                } else {
+                    // append element to hold counter message (clean up old element first)
+                    $(this).next("." + settings.classname).remove();
+                    container = $(settings.container)
+                        .insertAfter(this)
+                        .addClass(settings.classname);
+                }
+                $(this)
+                    .unbind(".charCounter")
+                    .bind("keydown.charCounter", function () { count(this, container); })
+                    .bind("keypress.charCounter", function () { count(this, container); })
+                    .bind("keyup.charCounter", function () { count(this, container); })
+                    .bind("focus.charCounter", function () { count(this, container); })
+                    .bind("mouseover.charCounter", function () { count(this, container); })
+                    .bind("mouseout.charCounter", function () { count(this, container); })
+                    .bind("paste.charCounter", function () {
+                        var me = this;
+                        setTimeout(function () { count(me, container); }, 10);
+                    });
+                if (this.addEventListener) {
+                    this.addEventListener('input', function () { count(this, container); }, false);
+                };
+                count(this, container);
+            });
+        };
+
+    })(jQuery);
+
+    $(function () {
+        $(".counted").charCounter(255, { container: "#counter-extract" });
+        $(".counted").charCounter(255, { container: "#counter-review" });
+        $(".counted").charCounter(255, { container: "#counter-comment" });
+    });</script>
+
+<script>
+    $(document).ready(function () {
+        $(".modal").on("hidden.bs.modal", function () {
+            $(".modal-body1").html("Where did he go?!?!?!");
+        });
     });
 </script>
 

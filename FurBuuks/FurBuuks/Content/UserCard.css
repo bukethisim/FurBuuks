@@ -56,8 +56,20 @@
             color: #999999;
         }
 
+.card.gedf-card.carousel {
+    text-align:center;
+}
+
 .card .card-body {
     padding: 0 20px;
+    margin-top: 20px;
+}
+
+.card .card-body.carousel {
+    padding: 0 20px;
+    padding-bottom:20px;
+    width:250px;
+    margin:auto;
     margin-top: 20px;
 }
 

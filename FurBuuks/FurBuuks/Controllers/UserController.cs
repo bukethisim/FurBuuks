@@ -21,12 +21,15 @@ namespace FurBuuks.Controllers
                                    orderby c.CommentDate descending
                                    select c)
                                   .ToList();
-            ViewBag.AllBooks = db.Books.ToList();
-            //ViewBag.UserPhoto = from p in db.Users
-            //                    join com in db.Comments
-            //                    on p.Id equals com.UserId
-            //                    where p.Id == user.Id
-            //                    select p.ImageURL;
+            ViewBag.RecentBooks = db.Books
+                .OrderByDescending(x => x.Id)
+                .Take(5)
+                .ToList();
+            ViewBag.UserBooks = from ub in db.UserBooks
+                                join b in db.Books
+                                on ub.Book.Id equals b.Id
+                                where ub.User.Id == u.Id
+                                select b;
             return View(user);
         }
 
