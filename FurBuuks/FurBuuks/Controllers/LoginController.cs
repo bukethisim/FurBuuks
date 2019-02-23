@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -75,9 +77,47 @@ namespace FurBuuks.Controllers
 
         }
 
+        [HttpGet]
         public ActionResult RePassword()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult RePassword(string email)
+        {
+            var user = db.Users.Where(x => x.Email == email).FirstOrDefault();
+            SmtpClient client = new SmtpClient();
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            client.Timeout = 10000;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new System.Net.NetworkCredential("furbuuks@gmail.com", "Aa123456!");
+
+            var rePassword = ResetPassword();
+            MailMessage mm = new MailMessage("furbuuks@gmail.com", email, "Şifre Yenileme", "Yeni şifreniz : " + rePassword);
+            user.Password = rePassword;
+            db.SaveChanges();
+            mm.BodyEncoding = UTF8Encoding.UTF8;
+            mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+
+            client.Send(mm);
+            return RedirectToAction("Index");
+        }
+
+        Random random = new Random();
+        private string ResetPassword()
+        {
+            string password = "";
+            int r;
+            for (int i = 0; i < 10; i++)
+            {
+                r = random.Next(1, 10);
+                password += r.ToString();
+            }
+            return password;
         }
     }
 }
