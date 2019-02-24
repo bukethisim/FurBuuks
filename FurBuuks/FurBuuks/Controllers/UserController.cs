@@ -32,6 +32,62 @@ namespace FurBuuks.Controllers
                                 select b;
             return View(user);
         }
+        #region Comments
+        [HttpPost]
+        public ActionResult AddExtract(Comment comment, string ExtractBook)
+        {
+            var u = ((User)Session["User"]);
+            User user = db.Users.Find(u.Id);
+            if (ModelState.IsValid)
+            {
+                Comment newComment = new Comment();
+                newComment.User = user;
+                newComment.CommentDate = DateTime.Now;
+                newComment.Content = comment.Content;
+                newComment.BookName = "Kitap Adı:" + ExtractBook;
+                db.Comments.Add(newComment);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult AddReview(Comment comment, string ReviewBook)
+        {
+            var u = ((User)Session["User"]);
+            User user = db.Users.Find(u.Id);
+            if (ModelState.IsValid)
+            {
+                Comment newComment = new Comment();
+                newComment.User = user;
+                newComment.CommentDate = DateTime.Now;
+                newComment.Content = comment.Content;
+                newComment.BookName = "\"" + "Kitap Adı:" + ReviewBook + "\"";
+                db.Comments.Add(newComment);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult AddComment(Comment comment)
+        {
+            var u = ((User)Session["User"]);
+            User user = db.Users.Find(u.Id);
+
+            if (ModelState.IsValid)
+            {
+                Comment newComment = new Comment();
+                newComment.User = user;
+                newComment.CommentDate = DateTime.Now;
+                newComment.Content = comment.Content;
+                db.Comments.Add(newComment);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+        #endregion
+
 
         public ActionResult UserProfile()
         {

@@ -86,8 +86,7 @@
                                         <img class="rounded-circle" width="45" src="@item.User.ImageURL" alt="">
                                     </div>
                                     <div class="ml-2">
-                                        <div class="h5 m-0"><a href="#">@item.User.UserName</a></div>
-                                        <div class="h7 text-muted">Miracles @item.User.NameSurname</div>
+                                        <div class="h5 m-0"><a href="/User/UserProfile">@item.User.UserName</a></div>
                                     </div>
                                 </div>
 
@@ -107,7 +106,9 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">
-                                @item.Content
+                                <strong>@item.BookName</strong>
+                                <br />
+                                <div style="text-indent:20px;"><span>@item.Content</span></div>
                             </p>
                             <div class="text-muted h7 mb-2 float-right"> <i class="fa fa-clock-o">10 minutes ago</i></div>
                         </div>
@@ -126,17 +127,6 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <div class="ui-widget">
-                                        <label>Kitap: </label>
-                                        <select id="combobox">
-                                            <option>Lütfen bir kitap seçiniz.</option>
-                                            @foreach (Book item in ViewBag.UserBooks)
-                                            {
-                                                <option value="Ultrasound Knee Right">@item.Title</option>
-                                            }
-
-                                        </select>
-                                    </div>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
@@ -144,11 +134,22 @@
                                 <div class="modal-body">
                                     <div class="panel panel-default">
                                         <div class="panel-body">
-                                            <form accept-charset="UTF-8" action="" method="POST">
-                                                <textarea class="form-control counted counted-extract" name="message" placeholder="Alıntınızı buraya yazın.." rows="5" style="margin-bottom:10px;"></textarea>
-                                                <span class="pull-right" id="counter-extract">320 characters remaining</span>
+                                            <form accept-charset="UTF-8" action="/User/AddExtract" method="post">
+                                                <div class="ui-widget">
+                                                    <label>Kitap: </label>
+                                                    <select id="ExtractBook" name="ExtractBook">
+                                                        <option>Lütfen bir kitap seçiniz.</option>
+                                                        @foreach (Book item in ViewBag.UserBooks)
+                                                        {
+                                                            <option value="@item.Title">@item.Title</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                                <textarea class="form-control counted counted-extract" name="Content" placeholder="Alıntınızı buraya yazın.." rows="5" style="margin-bottom:10px;"></textarea>
+                                                <span class="pull-right" id="counter-extract" data-dismiss="modal">320 characters remaining</span>
                                                 <br />
-                                                <button class="btn btn-success" type="submit">Paylaş</button>
+                                                <button class="btn btn-success">Paylaş</button>
                                             </form>
                                         </div>
                                     </div>
@@ -166,17 +167,6 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <div class="ui-widget">
-                                        <label>Kitap: </label>
-                                        <select id="combobox">
-                                            <option>Lütfen bir kitap seçiniz.</option>
-                                            @foreach (Book item in ViewBag.UserBooks)
-                                            {
-                                                <option value="Ultrasound Knee Right">@item.Title</option>
-                                            }
-
-                                        </select>
-                                    </div>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
@@ -184,11 +174,23 @@
                                 <div class="modal-body">
                                     <div class="panel panel-default">
                                         <div class="panel-body">
-                                            <form accept-charset="UTF-8" action="" method="POST">
-                                                <textarea class="form-control counted counted-review" name="message" placeholder="İncelemenizi buraya yazın" rows="5" style="margin-bottom:10px;"></textarea>
+                                            <form accept-charset="UTF-8" action="/User/AddReview" method="POST">
+
+                                                <div class="ui-widget">
+                                                    <label>Kitap: </label>
+                                                    <select id="ReviewBook" name="ReviewBook">
+                                                        <option>Lütfen bir kitap seçiniz.</option>
+                                                        @foreach (Book item in ViewBag.UserBooks)
+                                                        {
+                                                            <option value="@item.Title">@item.Title</option>
+                                                        }
+
+                                                    </select>
+                                                </div>
+                                                <textarea class="form-control counted counted-review" name="Content" placeholder="İncelemenizi buraya yazın" rows="5" style="margin-bottom:10px;"></textarea>
                                                 <span class="pull-right" id="counter-review">320 characters remaining</span>
                                                 <br />
-                                                <button class="btn btn-success" type="submit">Paylaş</button>
+                                                <button class="btn btn-success">Paylaş</button>
                                             </form>
                                         </div>
                                     </div>
@@ -215,11 +217,11 @@
                                     <div class="modal-body1">
                                         <div class="panel panel-default">
                                             <div class="panel-body">
-                                                <form accept-charset="UTF-8" action="" method="POST">
-                                                    <textarea class="form-control counted counted-comment" name="message" placeholder="İncelemenizi buraya yazın" rows="5" style="margin-bottom:10px;"></textarea>
+                                                <form accept-charset="UTF-8" method="post" action="/User/AddComment">
+                                                    <textarea class="form-control counted counted-comment" name="Content" placeholder="İncelemenizi buraya yazın" rows="5" style="margin-bottom:10px;"></textarea>
                                                     <span class="pull-right" id="counter-comment">320 characters remaining</span>
                                                     <br />
-                                                    <button class="btn btn-success" type="submit">Paylaş</button>
+                                                    <button class="btn btn-success">Paylaş</button>
                                                 </form>
                                             </div>
                                         </div>

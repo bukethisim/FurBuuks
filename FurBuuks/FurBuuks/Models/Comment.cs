@@ -12,6 +12,7 @@ namespace FurBuuks.Models
         [Key]
         public int Id { get; set; }
         public DateTime CommentDate { get; set; }
+        public string BookName { get; set; }
         [MaxLength(255)]
         public string Content { get; set; }
         [ForeignKey("User")]
