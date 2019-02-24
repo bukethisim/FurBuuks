@@ -64,10 +64,14 @@ namespace FurBuuks.Controllers
                 old.TwitterURL = edited.TwitterURL;
                 old.GooglePlusURL = edited.GooglePlusURL;
 
-                var path = Server.MapPath("/Uploads/UserProfilePicture/");
-                var filename = edited.Id + ".jpg";
-                ImageURL.SaveAs(path + filename);
-                old.ImageURL = "/Uploads/UserProfilePicture/" + filename;
+                if (ImageURL != null)
+                {
+                    var path = Server.MapPath("/Uploads/UserProfilePicture/");
+                    var filename = edited.Id + ".jpg";
+                    ImageURL.SaveAs(path + filename);
+                    old.ImageURL = "/Uploads/UserProfilePicture/" + filename;
+                }
+
 
                 db.Entry(old).State = EntityState.Modified;
                 db.SaveChanges();
@@ -134,5 +138,20 @@ namespace FurBuuks.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult DeleteComment(int id)
+        {
+            try
+            {
+                var d = db.Comments.Find(id);
+                db.Comments.Remove(d);
+                db.SaveChanges();
+                return Json(true);
+            }
+            catch
+            {
+                return Json(false);
+            }
+        }
     }
 }

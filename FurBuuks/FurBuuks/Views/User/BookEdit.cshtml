@@ -30,7 +30,7 @@
                         @foreach (var item in Model.UserBooks)
                         {
 
-                            <div class="row oylesine  @item.Id">
+                            <div class="row oylesine  @item.Id" style="border-bottom:2px solid gray ; margin:20px 0px 10px 0px">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="col-xs-6 text-center">
@@ -49,6 +49,12 @@
                                     <div class="form-group">
                                         <div class="col-xs-6">
                                             <label>Yazar: @item.Book.Author</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <label>Durum: @item.State</label>
                                         </div>
                                     </div>
 
@@ -157,8 +163,6 @@
 
                     }
                 });
-
-
             });
         });
     </script>
