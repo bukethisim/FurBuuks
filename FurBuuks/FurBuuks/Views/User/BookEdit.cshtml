@@ -30,7 +30,7 @@
                         @foreach (var item in Model.UserBooks)
                         {
 
-                            <div class="row oylesine  @item.Id" style="border-bottom:2px solid gray ; margin:20px 0px 10px 0px">
+                            <div class="row oylesine  @item.Id" style="border-bottom:2px solid #808080 ; margin:20px 0px 10px 0px">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="col-xs-6 text-center">
@@ -101,6 +101,7 @@
                                                 <label>Bitiş Tarihi:</label>
                                                 <input type="text" onclick="this.type='date'" onblur="this.type='text'" name="EndTime" class="form-control" id="EndTime" value="@Html.Raw(item.EndTime.HasValue ? item.EndTime.Value.ToString("dd.MM.yyyy") : string.Empty)" />
                                             </div>
+                                            
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="save btn btn-primary" rel="">Kaydet</button>

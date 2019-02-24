@@ -92,7 +92,12 @@ namespace FurBuuks.Controllers
         public ActionResult UserProfile()
         {
             var u = ((User)Session["User"]);
+            var uID = u.Id;
             User user = db.Users.Find(u.Id);
+            ViewBag.UserComments = (from c in db.Comments
+                                    where c.UserId == uID
+                                    orderby c.CommentDate descending
+                                    select c).ToList();
             return View(user);
         }
 
