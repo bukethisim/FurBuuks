@@ -140,7 +140,7 @@
                                     <hr>
                                     <h3><strong>@Model.UserName </strong> <a href="/User/UserEdit/@Model.Id" class="btn ">Profili Düzenle</a> </h3>
                                     <hr>
-                                    <h3><strong>Hakkında</strong></h3>
+                                    <h3><strong>Kitaplık Bilgilerim</strong></h3>
                                     <p>@Model.Bio</p>
                                     <hr>
                                     <h3><strong>Sosyal medya</strong></h3>
@@ -177,7 +177,7 @@
                     <!--- \\\\\\\Post-->
                     @foreach (var item in ViewBag.UserComments)
 
-                    {<div class="card gedf-card @item.Id">
+                    {<div class="card gedf-card @item.Id" style="margin-bottom: 2.77rem;">
                             <div class="card-header">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="d-flex justify-content-between align-items-center">
